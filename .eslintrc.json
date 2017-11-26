@@ -1,0 +1,74 @@
+{
+  //自定义
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "indent": 0,
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    //自定义规则
+    //eslint-plugin-react
+    "react/no-did-mount-set-state": "error",
+    "react/no-did-update-set-state": "error",
+    "react/react-in-jsx-scope": "error",
+    "react/jsx-uses-vars": [
+      2
+    ],
+    "react/jsx-uses-react": [
+      2
+    ],
+    "no-console": 0,
+    "no-unused-vars":0
+
+    // 检查引用的路径是否有误
+    // 通过 {"commonjs": true, "amd": true} 来支持 commonjs 和 amd 方式的 require
+    //    "import/no-unresolved": [2, {"commonjs": true, "amd": true}],
+    //    "import/namespace": 2,
+    //    "import/default": 2,
+    //    "import/export": 2
+  },
+  "settings": {
+    // 如果我们通过webpack配置忽略了js文件后缀，在正常情况下eslint会因为找不到文件而报错。因此需要在settings里配置可省略的后缀名
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".scss"
+        ]
+      }
+    },
+    // 哪些import是不去检查的
+    // node_modules为默认值
+    // 还可以配置带有指定文件后缀不检查，如\.coffee$
+    "import/ignore": [
+      "node_modules"
+    ]
+  }
+}

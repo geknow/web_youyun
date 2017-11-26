@@ -1,0 +1,5 @@
+{
+  "presets": ["env"],
+  //对象展开运算符
+  "plugins": ["transform-object-rest-spread"]
+}
