@@ -1,13 +1,14 @@
 import './index.scss';
 import React from 'react';
+import logo from '../../icon/logo.png';
+import 'font-awesome/scss/font-awesome.scss';
 
-
-class MainHeader extends React.Component {
+class FileHeader extends React.Component {
     render() {
         return (
-            <div className="main_header">
+            <div className="main-header cf">
                 <div className="header-component header-logo-component">
-                    <div className="logo-component"><img src="../../icon/logo.png" alt=""/></div>
+                    <div className="logo-component"><img src={logo} alt="" /></div>
                     <div className="logo-name">优云</div>
                 </div>
                 <div className="header-component header-nav-component">
@@ -20,15 +21,16 @@ class MainHeader extends React.Component {
                 </div>
                 <div className="header-component header-search-component">
                     <form action="">
-                        <input type="text" placeholder="搜索"/>
-                        <i className="icon icon-search"/>
+                        <input type="text" placeholder="搜索" />
+                        <i className="icon fa fa-search mooc-search-icon" ></i>
                     </form>
                 </div>
                 <div className="header-component header-info-component">
                     <ul>
-                        <li><a href=""><i className="icon icon-person"/><span>日朋</span></a></li>
-                        <li><a href=""><i className="icon icon-message"/></a></li>
-                        <li><a href=""><i className="icon icon-setting"/></a></li>
+                        <li><a href=""><i className="icon fa fa-user-o" />&nbsp;<span>日朋</span></a></li>
+                        <span>&nbsp;|&nbsp;</span>
+                        <li><a href=""><i className="icon fa fa-commenting-o" /></a></li>
+                        <li><a href=""><i className="icon fa fa-cog" /></a></li>
                     </ul>
                 </div>
             </div>
@@ -37,4 +39,4 @@ class MainHeader extends React.Component {
 }
 
 
-export {MainHeader};
+export { FileHeader };

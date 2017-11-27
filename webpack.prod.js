@@ -8,7 +8,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = merge(common, {
     devtool: 'source-map',
     module:{
-        loaders:[
+        rules:[
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({

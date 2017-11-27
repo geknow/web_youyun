@@ -11,11 +11,12 @@ module.exports = merge(common, {
         port: 8080,
         historyApiFallback: true
     },
+    // 使用hot-middleware不能使用extractCss，会引起冲突，让页面无法hot reload
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
     ],
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.scss$/,
                 loaders: ['style-loader', 'css-loader', 'sass-loader']

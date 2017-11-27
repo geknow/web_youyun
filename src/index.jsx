@@ -5,33 +5,30 @@ import React from 'react';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import {MainHeader} from './components/index';
+import FileIndex from './containers/FileIndex';
 
-console.log(MainHeader);
-// import rootReducer from './reducers/index';
+import rootReducer from './reducers/index';
 
-// const store = createStore(
-//     rootReducer,
-//     applyMiddleware(thunk, logger)
-// );
+const store = createStore(
+    rootReducer,
+    applyMiddleware(thunk, logger)
+);
 
 
 
 let App = document.createElement('div');
 document.body.appendChild(App);
+
+
 ReactDOM.render(
-    <MainHeader/>,
+    <Provider store={store}>
+        <BrowserRouter>
+            <Switch>
+                {/* 添加对应的router */}
+                <Route exact path="/" component={FileIndex}/>
+                <Route path="/file" component={FileIndex}/>
+            </Switch>
+        </BrowserRouter>
+    </Provider>,
     App
 );
-// ReactDOM.render(
-//     <Provider store={store}>
-//         <BrowserRouter>
-//             <Switch>
-//                 {/*todo 需要添加component*/}
-//                 {/*<Route exact path="/" component={}/>*/}
-//                 {/*<Route path="/haha" component={}/>*/}
-//             </Switch>
-//         </BrowserRouter>
-//     </Provider>,
-//     App
-// );

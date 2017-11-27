@@ -1,0 +1,98 @@
+@import '../../scss/common/base.scss';
+@import '../../scss/common/color.scss';
+$headerHeight: 50px;
+$navcolor: #474545;
+a {
+    text-decoration: none;
+}
+
+@include cf('.cf');
+.main-header {
+    position: relative;
+    width: 100%;
+    height: $headerHeight;
+    background-color: $blockcolor;
+    .header-component {
+        display: inline-block;
+    }
+    .header-logo-component {
+        margin-left: 50px;
+        .logo-component {
+            height: $headerHeight;
+            margin-top: 5px;
+            display: inline-block;
+            vertical-align: middle;
+            padding-right: 5px;
+            img {
+                // 自动适应div大小
+                height: 100%;
+            }
+        }
+        .logo-name {
+            border-left: solid 1px $grey;
+            display: inline-block;
+            padding: 5px 15px;
+            font-size: 15px;
+        }
+    }
+    .header-nav-component {
+        margin-left: 50px;
+        ul {
+            list-style-type: none;
+            li {
+                display: inline-block;
+                margin-left: 10px;
+                a {
+                    font-size: 12px;
+                    color: $navcolor;
+                }
+            }
+        }
+    }
+    .header-search-component {
+        margin-left: 50px;
+        position: relative;
+        color: $grey;        
+        input {
+            border-radius: 50px;
+            outline: none;
+            border: none;
+            background-color: $backgroudcolor;
+            height: 25px;
+            text-indent: 10px;
+            font-size: 12px;
+            width: 250px;
+        }
+        ::-webkit-input-placeholder{
+            color: $grey;
+        }
+        i {
+            position: relative;
+            left: -22px;
+        }
+    }
+    .header-info-component {
+        line-height: $headerHeight;
+        float: right;
+        ul {
+            span{
+                color: $grey;
+            }
+            a {
+                color: $grey;
+                span {
+                    font-size: 12px;
+                }
+            }
+            list-style-type: none;
+            li {
+                display: inline-block;
+                margin: 0 5px;
+            }
+        
+            li:last-of-type {
+                margin-right: 50px;
+            }
+        }
+    }
+}

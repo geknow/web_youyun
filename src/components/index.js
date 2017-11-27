@@ -1,1 +1,3 @@
-export {MainHeader} from './MainHeader/index.jsx';
+export {FileHeader} from './FileHeader/index.jsx';
+
+export {FileFooter} from './FileFooter/index.jsx';

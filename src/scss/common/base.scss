@@ -1,10 +1,13 @@
 @import "~_normalize.css@7.0.0@normalize.css";
-
+@import "./color.scss";
 * {
   margin : 0;
   padding : 0;
   box-sizing: border-box;
   font-family: "微软雅黑",sans-serif;
+}
+body{
+  background-color: $backgroudcolor;
 }
 
 // BFC解决父元素塌陷和margin复用问题
