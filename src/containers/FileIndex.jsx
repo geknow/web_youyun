@@ -1,15 +1,14 @@
 
 import React from 'react';
-import { FileHeader } from '../components/index';
-import { FileFooter } from '../components/index';
+import { FileHeader,FileBody,Footer } from '../components/index';
 
 class FileIndex extends React.Component {
     render() {
         return (
             <div>
                 <FileHeader />
-                {/* todo body */}
-                <FileFooter/>
+                <FileBody/>
+                <Footer/>
             </div>
         );
     }

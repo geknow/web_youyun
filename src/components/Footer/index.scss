@@ -1,0 +1,54 @@
+@import '../../scss/common/base.scss';
+@import '../../scss/common/color.scss';
+$footerHeight: 100px;
+$footerSecondHeight: 40px;
+$footerFontSize: 10px;
+
+.footer-component {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: $footerHeight;
+    font-size: $footerFontSize;
+    .footer-component-first {
+        background-color: $blockcolor;
+        height: $footerHeight - $footerSecondHeight;
+        .footer-left {
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            vertical-align: middle;
+            div{
+                margin: 10px 0;
+            }
+            p{
+                color: $grey;
+            }
+        }
+        .footer-right {
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            ul {
+                list-style-type: none;
+                li {
+                    box-sizing: border-box;
+                    display: inline-block;
+                    padding: 0 10px;
+                    border-right: 1px solid $grey;
+                    a{
+                        color:  $grey;
+                    }
+                }
+            }
+        }
+    }
+    .footer-component-second {
+        height: $footerSecondHeight;
+        background-color: $grey;
+        text-align: center;
+        line-height: $footerSecondHeight;
+        font-size: $footerFontSize;
+        color: $blockcolor;
+    }
+}

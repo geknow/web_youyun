@@ -1,0 +1,69 @@
+@import '../../scss/common/base.scss';
+@import '../../scss/common/color.scss';
+$bodyLeft: 200px;
+$spanWidth: 71px;
+$bodyHeight: 807px;
+$bodyMarginBottom: 130px;
+@include cf('.clearfix');
+.file-body {
+    position: relative;
+    width: auto;
+    margin: 0 25px;
+    margin-bottom: $bodyMarginBottom;
+    .file-body-left {
+        height: $bodyHeight;
+        float: left;
+        width: $bodyLeft;
+        background-color: $blockcolor;
+        text-align: center;
+        .file-body-group {
+            .file-body-span {
+                margin: 0 auto;
+                padding: 15px 0;
+                width: 165px;
+                color: $grey;
+                a {
+                    color: inherit;
+                }
+            }
+            .file-body-span>span:first-child {
+                position: absolute;
+                left: 38px;
+            }
+            .file-body-span>span:nth-child(2) {
+                display: inline-block;
+                text-align: left;
+                width: 71px;
+                margin: 0 auto;
+            }
+            &>ul {
+                list-style-type: none;
+                li {
+                    width: 71px;
+                    margin: 12px auto;
+                    text-align: left;
+                    a {
+                        color: $grey;
+                    }
+                }
+            }
+            .file-body-recycle {
+                display: inline-block;
+                text-align: left;
+                width: 71px;
+                margin: 0 auto;
+            }
+        }
+        .file-body-group:first-child {
+            .file-body-span:first-child {
+                margin-top: 40px;
+                background-color: $lightgrey;
+                border-radius: 5px;
+                color: $primarybtn;
+                a {
+                    color: inherit;
+                }
+            }
+        }
+    }
+}

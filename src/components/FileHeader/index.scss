@@ -2,16 +2,20 @@
 @import '../../scss/common/color.scss';
 $headerHeight: 50px;
 $navcolor: #474545;
+$headerWidth: 1340px;
+$headerMaginBottom: 50px;
 a {
     text-decoration: none;
 }
 
-@include cf('.cf');
+@include cf('.clearfix');
+
 .main-header {
     position: relative;
-    width: 100%;
+    width: $headerWidth;
     height: $headerHeight;
     background-color: $blockcolor;
+    margin-bottom: $headerMaginBottom;
     .header-component {
         display: inline-block;
     }

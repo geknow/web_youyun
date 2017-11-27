@@ -6,7 +6,7 @@ import 'font-awesome/scss/font-awesome.scss';
 class FileHeader extends React.Component {
     render() {
         return (
-            <div className="main-header cf">
+            <div className="main-header clearfix">
                 <div className="header-component header-logo-component">
                     <div className="logo-component"><img src={logo} alt="" /></div>
                     <div className="logo-name">优云</div>
