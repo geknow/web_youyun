@@ -1,3 +1,0 @@
-import 'MainHead.scss';
-import
-

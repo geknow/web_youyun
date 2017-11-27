@@ -17,7 +17,7 @@ let webpackConfig = {
         extensions: ['.js', '.json', '.scss', '.jsx']
     },
     module: {
-        rules: [
+        loaders: [
             {
                 test: /\.jsx?$/,
                 enforce: 'pre',
