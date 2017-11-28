@@ -2,17 +2,16 @@
 @import '../../scss/common/color.scss';
 $headerHeight: 50px;
 $navcolor: #474545;
-$headerWidth: 1340px;
 $headerMaginBottom: 50px;
+$headerMinWidth: 900px;
 a {
     text-decoration: none;
 }
 
 @include cf('.clearfix');
-
 .main-header {
     position: relative;
-    width: $headerWidth;
+    min-width: $headerMinWidth;
     height: $headerHeight;
     background-color: $blockcolor;
     margin-bottom: $headerMaginBottom;
@@ -20,7 +19,8 @@ a {
         display: inline-block;
     }
     .header-logo-component {
-        margin-left: 50px;
+        width: 25%;
+        text-align: center;
         .logo-component {
             height: $headerHeight;
             margin-top: 5px;
@@ -35,39 +35,41 @@ a {
         .logo-name {
             border-left: solid 1px $grey;
             display: inline-block;
-            padding: 5px 15px;
-            font-size: 15px;
+            padding: 5px 1em;
+            font-size: 1em;
         }
     }
     .header-nav-component {
-        margin-left: 50px;
+        width: 25%;
+        text-align: center;
         ul {
             list-style-type: none;
             li {
                 display: inline-block;
-                margin-left: 10px;
+                margin-left: .7em;
                 a {
-                    font-size: 12px;
+                    font-size: 0.75em;
                     color: $navcolor;
                 }
             }
         }
     }
     .header-search-component {
-        margin-left: 50px;
+        width: 25%;
+        text-align: left;
         position: relative;
-        color: $grey;        
+        color: $grey;
         input {
             border-radius: 50px;
             outline: none;
             border: none;
             background-color: $backgroudcolor;
             height: 25px;
-            text-indent: 10px;
-            font-size: 12px;
-            width: 250px;
+            text-indent: 0.6em;
+            font-size: 0.75em;
+            width: 75%;
         }
-        ::-webkit-input-placeholder{
+         ::-webkit-input-placeholder {
             color: $grey;
         }
         i {
@@ -76,16 +78,17 @@ a {
         }
     }
     .header-info-component {
+        width: 25%;
+        text-align: center;
         line-height: $headerHeight;
-        float: right;
         ul {
-            span{
+            span {
                 color: $grey;
             }
             a {
                 color: $grey;
                 span {
-                    font-size: 12px;
+                    font-size: 0.75em;
                 }
             }
             list-style-type: none;
@@ -93,7 +96,6 @@ a {
                 display: inline-block;
                 margin: 0 5px;
             }
-        
             li:last-of-type {
                 margin-right: 50px;
             }

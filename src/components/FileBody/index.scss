@@ -1,13 +1,15 @@
 @import '../../scss/common/base.scss';
 @import '../../scss/common/color.scss';
-$bodyLeft: 200px;
+$bodyLeft: 10%;
 $spanWidth: 71px;
 $bodyHeight: 807px;
-$bodyMarginBottom: 130px;
+$bodyMarginBottom: 130px;//footer是fixed，高度为100px
+$bodyMinWidth: 900px;
+
 @include cf('.clearfix');
 .file-body {
     position: relative;
-    width: auto;
+    min-width: $bodyMinWidth;
     margin: 0 25px;
     margin-bottom: $bodyMarginBottom;
     .file-body-left {
@@ -17,29 +19,23 @@ $bodyMarginBottom: 130px;
         background-color: $blockcolor;
         text-align: center;
         .file-body-group {
+            font-size: 0.7em;
+
             .file-body-span {
                 margin: 0 auto;
-                padding: 15px 0;
-                width: 165px;
+                padding: 15px 0 15px 20px;
+                width: 80%;
                 color: $grey;
                 a {
                     color: inherit;
                 }
             }
-            .file-body-span>span:first-child {
-                position: absolute;
-                left: 38px;
-            }
-            .file-body-span>span:nth-child(2) {
-                display: inline-block;
-                text-align: left;
-                width: 71px;
-                margin: 0 auto;
-            }
             &>ul {
                 list-style-type: none;
+                width: 80%;
+                margin: 0 auto;
                 li {
-                    width: 71px;
+                    width: 70%;
                     margin: 12px auto;
                     text-align: left;
                     a {
@@ -47,23 +43,34 @@ $bodyMarginBottom: 130px;
                     }
                 }
             }
-            .file-body-recycle {
+
+            .file-body-span>span:first-child {
+                position: absolute;
+                left: 1.2%;
+            }
+            .file-body-span>span:nth-child(2) {
                 display: inline-block;
-                text-align: left;
-                width: 71px;
-                margin: 0 auto;
+                // text-align: left;
+                // width: 70%;
+                // margin-left: 10px;
             }
+            // .file-body-recycle {
+            //     display: inline-block;
+            //     text-align: left;
+            //     width: 71px;
+            //     margin: 0 auto;
+            // }
         }
-        .file-body-group:first-child {
-            .file-body-span:first-child {
-                margin-top: 40px;
-                background-color: $lightgrey;
-                border-radius: 5px;
-                color: $primarybtn;
-                a {
-                    color: inherit;
-                }
-            }
-        }
+        // .file-body-group:first-child {
+        //     .file-body-span:first-child {
+        //         margin-top: 40px;
+        //         background-color: $lightgrey;
+        //         border-radius: 5px;
+        //         color: $primarybtn;
+        //         a {
+        //             color: inherit;
+        //         }
+        //     }
+        // }
     }
 }

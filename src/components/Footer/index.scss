@@ -3,11 +3,12 @@
 $footerHeight: 100px;
 $footerSecondHeight: 40px;
 $footerFontSize: 10px;
-
+$footerMinWidth: 900px;
 .footer-component {
     position: fixed;
     bottom: 0;
     width: 100%;
+    min-width: $footerMinWidth;
     height: $footerHeight;
     font-size: $footerFontSize;
     .footer-component-first {
