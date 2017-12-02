@@ -9,6 +9,9 @@
 body{
   background-color: $backgroudcolor;
 }
+ul{
+  list-style-type: none;
+}
 
 // BFC解决父元素塌陷和margin复用问题
 @mixin cf($className:cf){

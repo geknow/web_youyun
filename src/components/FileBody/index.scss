@@ -3,9 +3,8 @@
 $bodyLeft: 10%;
 $spanWidth: 71px;
 $bodyHeight: 807px;
-$bodyMarginBottom: 130px;//footer是fixed，高度为100px
+$bodyMarginBottom: 130px; //footer是fixed，高度为100px
 $bodyMinWidth: 900px;
-
 @include cf('.clearfix');
 .file-body {
     position: relative;
@@ -20,57 +19,149 @@ $bodyMinWidth: 900px;
         text-align: center;
         .file-body-group {
             font-size: 0.7em;
-
             .file-body-span {
                 margin: 0 auto;
-                padding: 15px 0 15px 20px;
                 width: 80%;
                 color: $grey;
+                text-align: left;
+                margin-top: 15px;
+                padding: 5px 0 5px 20px;
                 a {
                     color: inherit;
                 }
             }
             &>ul {
-                list-style-type: none;
-                width: 80%;
                 margin: 0 auto;
+                padding-left: 20px;
+                width: 80%;
                 li {
-                    width: 70%;
-                    margin: 12px auto;
+                    margin: 20px auto;
                     text-align: left;
                     a {
                         color: $grey;
                     }
                 }
             }
-
             .file-body-span>span:first-child {
                 position: absolute;
                 left: 1.2%;
             }
-            .file-body-span>span:nth-child(2) {
-                display: inline-block;
-                // text-align: left;
-                // width: 70%;
-                // margin-left: 10px;
-            }
-            // .file-body-recycle {
-            //     display: inline-block;
-            //     text-align: left;
-            //     width: 71px;
-            //     margin: 0 auto;
-            // }
         }
-        // .file-body-group:first-child {
-        //     .file-body-span:first-child {
-        //         margin-top: 40px;
-        //         background-color: $lightgrey;
-        //         border-radius: 5px;
-        //         color: $primarybtn;
-        //         a {
-        //             color: inherit;
-        //         }
-        //     }
-        // }
+        .file-body-group:first-child {
+            .file-body-span:first-child {
+                padding: 15px 0 15px 20px;
+                background-color: $lightgrey;
+                border-radius: 5px;
+                color: $primarybtn;
+                a {
+                    color: inherit;
+                }
+            }
+        }
+    }
+    .file-body-right {
+        height: $bodyHeight;
+        float: left;
+        margin-left: 24px;
+        width: calc(100% - #{$bodyLeft} - 24px);
+        background-color: $blockcolor;
+        .right-header-content {
+            width: 92%;
+            margin: 0 auto;
+            margin-bottom: 15px;
+            .body-right-header {
+                width: 100%;
+                margin-top: 40px;
+                $height: 35px; // 声明
+                .header-name {
+                    display: inline-block;
+                    line-height: $height;
+                    span {
+                        font-size: 1em;
+                    }
+                }
+                .header-tag {
+                    float: right;
+                    ul {
+                        li {
+                            padding: 0 20px;
+                            height: $height;
+                            text-align: center;
+                            border-radius: 50px;
+                            border: 1px $primarybtn solid;
+                            display: inline-block;
+                            margin-right: 24px;
+                            text-align: center;
+                            span {
+                                color: $primarybtn;
+                                line-height: $height;
+                            }
+                        }
+                        li:last-child {
+                            margin-right: 0;
+                            background-color: $lightBlue;
+                            span {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+                .header-file-tag {
+                    margin-top: 30px;
+                    li {
+                        color: $lightgrey;
+                        text-align: left;
+                        display: inline-block;
+                    }
+                    li:nth-child(1) {
+                        width: 50%;
+                    }
+                    li:nth-child(2) {
+                        width: 30%;
+                    }
+                    li:nth-child(3) {
+                        width: 20%;
+                    }
+                }
+            }
+        }
+        .r_hr {
+            border-top: 1px solid $lightgrey;
+        }
+        .right-body-content {
+            width: 92%;
+            margin: 0 auto;
+            margin-top: 20px;
+            .content {
+                width: 100%;
+                margin-top: 40px;
+                $rowliheight: 50px;
+                .row {
+                    li {
+                        height: $rowliheight;
+                        border-bottom: 1px solid $lightgrey;
+                        ul {
+                            li {
+                                color: $grey;
+                                text-align: left;
+                                display: inline-block;
+                                span {
+                                    line-height: $rowliheight;
+                                }
+                            }
+                            li:nth-child(1) {
+                                width: 50%;
+                            }
+                            li:nth-child(2) {
+                                width: 30%;
+                            }
+                            li:nth-child(3) {
+                                width: 20%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
