@@ -1,7 +1,10 @@
-.node_modules
-.idea
-dist
-node_modules
-typings.json
-typings
-iconfontGenerate
+**
+!src
+!.babelrc
+!.eslintrc.json
+!eslint_auto_fix_test.js
+!package.json
+!README.md
+!webpack.common.js
+!webpack.dev.js
+!webpack.prod.js
