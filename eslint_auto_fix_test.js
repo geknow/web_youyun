@@ -3,7 +3,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const pro = require('child_process');
+const {exec} = require('child_process');
 
 
 let files = [];
@@ -21,10 +21,10 @@ let gf = (pathname) => {
 };
 gf(__dirname);
 files.forEach(file => {
-    pro.exec(`eslint ${file} --fix`,function (err,stdout,stder) {
-        if(err){
-            console.log('err');
-        } else{
+    exec(`eslint ${file} --fix`, function (err, stdout, stder) {
+        if (err) {
+            console.log(`err ${err}`);
+        } else {
             console.log(`${file} ok`);
         }
     });

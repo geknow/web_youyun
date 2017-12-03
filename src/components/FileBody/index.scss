@@ -1,167 +1,193 @@
 @import '../../scss/common/base.scss';
 @import '../../scss/common/color.scss';
+
 $bodyLeft: 10%;
 $spanWidth: 71px;
 $bodyHeight: 807px;
-$bodyMarginBottom: 130px; //footer是fixed，高度为100px
+$bodyMarginBottom: 50px;
 $bodyMinWidth: 900px;
 @include cf('.clearfix');
 .file-body {
-    position: relative;
-    min-width: $bodyMinWidth;
-    margin: 0 25px;
-    margin-bottom: $bodyMarginBottom;
-    .file-body-left {
-        height: $bodyHeight;
-        float: left;
-        width: $bodyLeft;
-        background-color: $blockcolor;
-        text-align: center;
-        .file-body-group {
-            font-size: 0.7em;
-            .file-body-span {
-                margin: 0 auto;
-                width: 80%;
+  position: relative;
+  min-width: $bodyMinWidth;
+  margin: 0 25px $bodyMarginBottom;
+  .file-body-left {
+    height: $bodyHeight;
+    float: left;
+    width: $bodyLeft;
+    background-color: $blockcolor;
+    text-align: center;
+    .file-body-group {
+      font-size: 0.7em;
+      .file-body-span {
+        width: 80%;
+        color: $grey;
+        text-align: left;
+        margin: 15px auto 0;
+        padding: 5px 0 5px 20px;
+        a {
+          color: inherit;
+        }
+      }
+      & > ul {
+        margin: 0 auto;
+        padding-left: 20px;
+        width: 80%;
+        li {
+          span {
+            visibility: hidden;
+          }
+          margin: 20px auto;
+          text-align: left;
+          a {
+            color: $grey;
+          }
+        }
+      }
+    }
+    .file-body-group:first-child {
+      .file-body-span:first-child {
+        padding: 15px 0 15px 20px;
+        background-color: $lightgrey;
+        border-radius: 5px;
+        color: $primarybtn;
+        a {
+          color: inherit;
+        }
+      }
+    }
+  }
+  .file-body-right {
+    height: $bodyHeight;
+    float: left;
+    margin-left: 24px;
+    width: calc(100% - #{$bodyLeft} - 24px);
+    background-color: $blockcolor;
+    .right-header-content {
+      width: 92%;
+      margin: 0 auto 15px;
+      .body-right-header {
+        width: 100%;
+        margin-top: 40px;
+        $height: 35px; // 声明
+        .header-name {
+          display: inline-block;
+          line-height: $height;
+          span {
+            font-size: 1em;
+          }
+        }
+        .header-tag {
+          float: right;
+          ul {
+            li {
+              padding: 0 20px;
+              height: $height;
+              text-align: center;
+              border-radius: 50px;
+              border: 1px $primarybtn solid;
+              display: inline-block;
+              margin-right: 24px;
+              span {
+                color: $primarybtn;
+                line-height: $height;
+              }
+            }
+            li:last-child {
+              margin-right: 0;
+              background-color: $lightBlue;
+              span {
+                color: white;
+              }
+            }
+          }
+        }
+        .header-file-tag {
+          margin-top: 30px;
+          li {
+            color: $lightgrey;
+            text-align: left;
+            display: inline-block;
+            .box-all {
+              display: inline-block;
+              height: 15px;
+              width: 15px;
+              border: 1px solid $grey;
+              margin-right: 20px;
+              i {
+                display: none;
+                vertical-align: top;
+                color: $grey;
+              }
+            }
+
+          }
+          li:nth-child(1) {
+            width: 50%;
+          }
+          li:nth-child(2) {
+            width: 30%;
+          }
+          li:nth-child(3) {
+            width: 20%;
+          }
+        }
+      }
+    }
+    .r_hr {
+      border-top: 1px solid $lightgrey;
+    }
+    .right-body-content {
+      width: 92%;
+      margin: 20px auto 0;
+      .content {
+        width: 100%;
+        margin-top: 40px;
+        $rowliheight: 50px;
+        .row {
+          li {
+            height: $rowliheight;
+            border-bottom: 1px solid $lightgrey;
+            ul {
+              li {
                 color: $grey;
                 text-align: left;
-                margin-top: 15px;
-                padding: 5px 0 5px 20px;
-                a {
-                    color: inherit;
+                display: inline-block;
+                .box-single {
+                  display: inline-block;
+                  height: 15px;
+                  width: 15px;
+                  border: 1px solid $grey;
+                  margin-right: 20px;
+                  i {
+                    vertical-align: top;
+                    color: $grey;
+                  }
                 }
-            }
-            &>ul {
-                margin: 0 auto;
-                padding-left: 20px;
-                width: 80%;
-                li {
-                    margin: 20px auto;
-                    text-align: left;
-                    a {
-                        color: $grey;
-                    }
+                .file-type {
+                  display: inline-block;
+                  background: url('../../icon/30/file.png') no-repeat center;
+                  vertical-align: middle;
+                  height: 48px;
+                  width: 48px;
                 }
+                span {
+                  line-height: $rowliheight;
+                }
+              }
+              li:nth-child(1) {
+                width: 50%;
+              }
+              li:nth-child(2) {
+                width: 30%;
+              }
+              li:nth-child(3) {
+                width: 20%;
+              }
             }
-            .file-body-span>span:first-child {
-                position: absolute;
-                left: 1.2%;
-            }
+          }
         }
-        .file-body-group:first-child {
-            .file-body-span:first-child {
-                padding: 15px 0 15px 20px;
-                background-color: $lightgrey;
-                border-radius: 5px;
-                color: $primarybtn;
-                a {
-                    color: inherit;
-                }
-            }
-        }
+      }
     }
-    .file-body-right {
-        height: $bodyHeight;
-        float: left;
-        margin-left: 24px;
-        width: calc(100% - #{$bodyLeft} - 24px);
-        background-color: $blockcolor;
-        .right-header-content {
-            width: 92%;
-            margin: 0 auto;
-            margin-bottom: 15px;
-            .body-right-header {
-                width: 100%;
-                margin-top: 40px;
-                $height: 35px; // 声明
-                .header-name {
-                    display: inline-block;
-                    line-height: $height;
-                    span {
-                        font-size: 1em;
-                    }
-                }
-                .header-tag {
-                    float: right;
-                    ul {
-                        li {
-                            padding: 0 20px;
-                            height: $height;
-                            text-align: center;
-                            border-radius: 50px;
-                            border: 1px $primarybtn solid;
-                            display: inline-block;
-                            margin-right: 24px;
-                            text-align: center;
-                            span {
-                                color: $primarybtn;
-                                line-height: $height;
-                            }
-                        }
-                        li:last-child {
-                            margin-right: 0;
-                            background-color: $lightBlue;
-                            span {
-                                color: white;
-                            }
-                        }
-                    }
-                }
-                .header-file-tag {
-                    margin-top: 30px;
-                    li {
-                        color: $lightgrey;
-                        text-align: left;
-                        display: inline-block;
-                    }
-                    li:nth-child(1) {
-                        width: 50%;
-                    }
-                    li:nth-child(2) {
-                        width: 30%;
-                    }
-                    li:nth-child(3) {
-                        width: 20%;
-                    }
-                }
-            }
-        }
-        .r_hr {
-            border-top: 1px solid $lightgrey;
-        }
-        .right-body-content {
-            width: 92%;
-            margin: 0 auto;
-            margin-top: 20px;
-            .content {
-                width: 100%;
-                margin-top: 40px;
-                $rowliheight: 50px;
-                .row {
-                    li {
-                        height: $rowliheight;
-                        border-bottom: 1px solid $lightgrey;
-                        ul {
-                            li {
-                                color: $grey;
-                                text-align: left;
-                                display: inline-block;
-                                span {
-                                    line-height: $rowliheight;
-                                }
-                            }
-                            li:nth-child(1) {
-                                width: 50%;
-                            }
-                            li:nth-child(2) {
-                                width: 30%;
-                            }
-                            li:nth-child(3) {
-                                width: 20%;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+  }
 }

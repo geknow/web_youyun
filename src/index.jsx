@@ -15,10 +15,10 @@ const store = createStore(
 );
 
 
-
 let App = document.createElement('div');
 document.body.appendChild(App);
-
+App.style.height = 'inherit';
+App.style.width = 'inherit';
 
 ReactDOM.render(
     <Provider store={store}>

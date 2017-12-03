@@ -22,7 +22,7 @@ class FileHeader extends React.Component {
                 <div className="header-component header-search-component">
                     <form action="">
                         <input type="text" placeholder="搜索" />
-                        <i className="icon fa fa-search mooc-search-icon" ></i>
+                        <i className="icon fa fa-search mooc-search-icon" />
                     </form>
                 </div>
                 <div className="header-component header-info-component">
