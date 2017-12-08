@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import searchReducer from './FileHeader';
+import {combineReducers} from 'redux';
+import FileHeaderReducer from './FileHeader';
 
 export default combineReducers({
-    searchReducer
+    FileHeaderReducer
 });

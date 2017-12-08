@@ -1,14 +1,16 @@
-
 import React from 'react';
-import { FileHeader,FileBody,Footer } from '../components/index';
+import {FileHeaderContainer, FileBody, Footer} from '../components/index';
 import '../scss/FileIndex.scss';
+import {connect} from 'react-redux';
+
+
 
 
 class FileIndex extends React.Component {
     render() {
         return (
             <div className="container">
-                <FileHeader />
+                <FileHeaderContainer/>
                 <FileBody/>
                 <Footer/>
             </div>

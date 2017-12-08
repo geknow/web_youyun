@@ -20,8 +20,6 @@ const store = createStore(
 let App = document.createElement('div');
 document.body.appendChild(App);
 App.style.height = 'inherit';
-App.style.width = 'inherit';
-
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
@@ -29,10 +27,12 @@ ReactDOM.render(
                 {/*目前url只是为了方便测试*/}
                 {/* 添加对应的router */}
                 <Route exact path="/" component={FileIndex}/>
-                <Route path="/fileItem" component={FileItem}/>
                 <Route path="/FileUpload" component={FileUpload}/>
+                <Route path="/fileItem" component={FileItem}/>
             </Switch>
         </BrowserRouter>
     </Provider>,
     App
 );
+
+App.style.width = 'inherit';

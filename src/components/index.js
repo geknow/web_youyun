@@ -1,8 +1,37 @@
+import {connect} from 'react-redux';
+
+
 // common
-export {Footer} from './Footer/index.jsx';
+import {Footer} from './Footer/index.jsx';
 
 // file
-export {FileHeader} from './MyFile/FileHeader/index.jsx';
-export {FileBody} from './MyFile/FileBody/index.jsx';
-export {FileItemBody} from './MyFile/FileItemBody/index.jsx';
-export {FileUploadBody} from './MyFile/FileUploadBody/index.jsx';
+import {FileHeader} from './MyFile/FileHeader/index.jsx';
+
+const FileHeaderContainer = connect(
+    (state) => {
+        return {
+            ...state.FileHeaderReducer
+        };
+    },
+    (dispatch) => {
+        return {
+            showSettingHandle: () => {
+                dispatch({
+                    type: 'showSetting'
+                });
+            }
+        };
+    }
+)(FileHeader);
+import {FileBody} from './MyFile/FileBody/index.jsx';
+import {FileItemBody} from './MyFile/FileItemBody/index.jsx';
+import {FileUploadBody} from './MyFile/FileUploadBody/index.jsx';
+
+export {
+    Footer,
+
+    FileHeaderContainer,
+    FileBody,
+    FileItemBody,
+    FileUploadBody
+};
