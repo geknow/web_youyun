@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import FileIndex from './containers/FileIndex';
 import FileItem from './containers/FileItem';
+import FileExtractCode from './containers/FileExtractCode';
 import FileUpload from './containers/FileUpload';
 
 import rootReducer from './reducers/index';
@@ -29,6 +30,7 @@ ReactDOM.render(
                 <Route exact path="/" component={FileIndex}/>
                 <Route path="/FileUpload" component={FileUpload}/>
                 <Route path="/fileItem" component={FileItem}/>
+                <Route path="/FileExtractCode" component={FileExtractCode}/>
             </Switch>
         </BrowserRouter>
     </Provider>,

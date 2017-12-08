@@ -27,11 +27,31 @@ import {FileBody} from './MyFile/FileBody/index.jsx';
 import {FileItemBody} from './MyFile/FileItemBody/index.jsx';
 import {FileUploadBody} from './MyFile/FileUploadBody/index.jsx';
 
+const FileUploadBodyContainer = connect(
+    (state) => {
+        return {
+            ...state.FileUploadReducer
+        };
+    },
+    (dispatch) => {
+        return {
+            selectFile: (pathname) => {
+                dispatch({
+                    type: 'selectFile',
+                    data: pathname.trim()
+                });
+            }
+        };
+    }
+)(FileUploadBody);
+import {FileExtractCodeBody} from './MyFile/FileExtractCodeBody/index.jsx';
+
 export {
     Footer,
 
     FileHeaderContainer,
     FileBody,
     FileItemBody,
-    FileUploadBody
+    FileUploadBodyContainer,
+    FileExtractCodeBody
 };
