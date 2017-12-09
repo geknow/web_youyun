@@ -1,11 +1,10 @@
 **
-!src
-!src/*/
-!src/*/*/
-!src/*/*/*/
-!src/*/*/*/*/
+# 文件夹 尾部必须包含/
+!src/
 
 
+
+#文件
 !.babelrc
 !.eslintrc.json
 !eslint_auto_fix_test.js
