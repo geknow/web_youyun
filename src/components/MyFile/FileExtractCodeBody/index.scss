@@ -1,0 +1,114 @@
+@import '../../../scss/common/base';
+@import '../../../scss/common/color';
+
+$bodyWidth: 774px;
+$bodyMarginBottom: 50px;
+.ExtractCode {
+    width: $bodyWidth;
+    margin: 0 auto $bodyMarginBottom;
+    background-color: $blockcolor;
+    & > div {
+        margin: 50px 8%;
+        .header {
+            padding-left: 40px;
+            border-bottom: 1px solid $lightgrey;
+            .header-info {
+                position: relative;
+                .avatar {
+                    position: absolute;
+                    left: -70px;
+                    height: 60px;
+                    width: 60px;
+                    background: url('../../../icon/90/vedio.png') no-repeat center;
+                    background-size: 100%;
+                }
+                .file-info {
+                    p {
+                        margin-bottom: 10px;
+                    }
+                    p:first-of-type {
+                        color: $lightgrey;
+                        span {
+                            color: $primarybtn;
+                        }
+                    }
+                    p:last-of-type {
+                        font-weight: 500;
+                    }
+                }
+                .file-time {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    span {
+                        color: $lightgrey;
+                    }
+                }
+            }
+
+            .file-info {
+                margin: 20px auto;
+                .description {
+                    color: $lightgrey;
+                    line-height: 1.5em;
+                }
+            }
+
+            #file {
+
+            }
+        }
+
+        .body {
+            margin-top: 40px;
+            & > p:first-of-type {
+                span {
+                    display: inline-block;
+                    width: 18px;
+                    height: 18px;
+                    background: url('../../../icon/tick.png') no-repeat center;
+                    vertical-align: bottom;
+                    margin-right: 5px;
+                }
+                color: $primarybtn;
+            }
+            .body-extract-code {
+                margin: 20px 0;
+                & > span {
+                    color: $lightgrey;
+                }
+                .extract-code {
+                    display: inline-block;
+                    background-color: $backgroudcolor;
+                    padding: 0 10px;
+                    margin-left: 50px;
+                    width: 300px;
+                    border-radius: 5px;
+                    line-height: 2em;
+                    span {
+                        float: right;
+                        color: $lightgrey;
+                        font-size: 0.75em;
+                    }
+                }
+                .copy-btn {
+                    padding: 10px 20px;
+                    float: right;
+                    background-color: $primarybtn;
+                    color: white;
+                    text-align: center;
+                    border-radius: 50px;
+                }
+            }
+            & > p:last-of-type {
+                font-size: 10px;
+                color: $lightgrey;
+            }
+        }
+    }
+}
+
+.ExtractCode:before, .ExtractCode:after {
+    display: table;
+    content: '';
+}

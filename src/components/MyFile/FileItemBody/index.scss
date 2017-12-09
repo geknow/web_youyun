@@ -1,0 +1,212 @@
+@import '../../../scss/common/base';
+@import '../../../scss/common/color';
+
+$bodyWidth: 1100px;
+$bodyMarginBottom: 50px;
+@include cf('.clearfix');
+.itemBody {
+    width: 80%;
+    min-width: $bodyWidth;
+    background-color: $blockcolor;
+    margin: 0 auto $bodyMarginBottom;
+    position: relative;
+    & > div {
+        margin: 0 8%;
+        width: auto;
+        &:before {
+            content: '';
+            display: table;
+        }
+        .itemBody-header {
+            margin: 20px auto;
+            .header-wrap {
+                margin-left: 20px;
+                .header {
+                    display: inline-block;
+                }
+                .file-type {
+                    position: absolute;
+                    left: 3%;
+                    height: 60px;
+                    width: 60px;
+                    background: url('../../../icon/90/vedio.png') no-repeat center;
+                    background-size: 100%;
+                }
+                .file-info {
+                    & > div {
+                        margin: 5px auto;
+                    }
+                    .file-people {
+                        a {
+                            color: $primarybtn;
+                        }
+                    }
+                    .file-name {
+                        span {
+                            font-size: 1.2em;
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                .file-code {
+                    float: right;
+                    margin-right: 20px;
+                    span {
+                        display: inline-block;
+                        margin: 0 10px;
+                    }
+                    & > span {
+                        color: $lightgrey;
+                    }
+                    & > div {
+                        display: inline-block;
+                        background-color: $backgroudcolor;
+                        padding: 5px;
+                        border-radius: 5px;
+                        span:last-of-type {
+                            color: $lightgrey;
+                        }
+                    }
+                }
+                ul {
+                    float: right;
+                    li {
+                        float: right;
+                        padding: 5px 15px;
+                        border-radius: 50px;
+                        border: 1px solid $primarybtn;
+                        margin-right: 20px;
+                        color: $primarybtn;
+                        cursor: pointer;
+                    }
+                    li:first-of-type {
+                        margin-right: 0;
+                        color: white;
+                        background-color: $primarybtn;
+                    }
+                }
+            }
+        }
+
+        .itemBody-body {
+            margin-left: 20px;
+            .description {
+                p {
+                    color: $lightgrey;
+                }
+            }
+            .picture {
+                .img-wrap {
+                    float: left;
+                    width: 200px;
+                    margin: 20px 20px 0 0;
+                    height: auto;
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+            .time {
+                margin: 5px 0;
+                span {
+                    float: right;
+                    color: $lightgrey;
+                }
+            }
+        }
+
+        .info {
+            padding-bottom: 10px;
+            border-bottom: 1px solid $lightgrey;
+            & > span {
+                color: $lightgrey;
+                font-size: 1.2em;
+            }
+            ul {
+                vertical-align: middle;
+                float: right;
+                li {
+                    float: right;
+                    padding: 0 10px;
+                    border-right: 1px solid $lightgrey;
+                    a {
+                        color: $primarybtn;
+                    }
+                    span {
+                        color: $lightgrey;
+                    }
+                }
+                li:first-of-type {
+                    border-right: none;
+                    padding-right: 0;
+                }
+            }
+        }
+
+        .itemBody-comment {
+            padding-bottom: 40px;
+            .comment-wrap {
+                padding: 10px 0;
+                border-bottom: 1px solid lightgrey;
+                .main-comment {
+                    & > div {
+                        float: left;
+                    }
+                    .avatar {
+                        width: 48px;
+                        height: 48px;
+                        background: url("https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2983011205,1072109279&fm=27&gp=0.jpg") no-repeat center;
+                        border-radius: 50%;
+                    }
+                    .user-comment {
+                        margin-left: 10px;
+                        width: calc(100% - 48px - 10px);
+                        float: left;
+                        p {
+                            span {
+                                color: $primarybtn;
+                            }
+                        }
+                        .time {
+                            margin-top: 10px;
+                            span {
+                                color: $lightgrey;
+                            }
+                        }
+                    }
+
+                }
+                .comment-info {
+                    color: $grey;
+                    span {
+                        display: inline-block;
+                        float: right;
+                    }
+                    span:first-child {
+                        padding-left: 10px;
+                    }
+                    span:last-child {
+                        padding-right: 10px;
+                        border-right: 1px solid $grey;
+                    }
+                }
+                .comment-reply {
+                    margin: 10px 10px 0 80px;
+                    padding: 10px;
+                    background-color: $backgroudcolor;
+                    p {
+                        span {
+                            color: $primarybtn;
+                        }
+                    }
+                    .time {
+                        margin-top: 10px;
+                        color: $lightgrey;
+                    }
+                }
+            }
+        }
+
+    }
+}

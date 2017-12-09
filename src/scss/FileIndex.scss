@@ -1,0 +1,15 @@
+@import "common/base";
+
+$footerHeight: 100px;
+
+html, body {
+  height: 100%;
+
+}
+
+.container {
+  position: relative;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding-bottom: $footerHeight;
+}

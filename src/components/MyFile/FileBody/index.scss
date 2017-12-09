@@ -1,0 +1,212 @@
+@import '../../../scss/common/base';
+@import '../../../scss/common/color';
+
+$bodyLeft: 10%;
+$spanWidth: 71px;
+$bodyHeight: 807px;
+$bodyMarginBottom: 50px;
+$bodyMinWidth: 900px;
+@include cf('.clearfix');
+.file-body {
+    position: relative;
+    min-width: $bodyMinWidth;
+    margin: 0 25px $bodyMarginBottom;
+    .file-body-left {
+        height: $bodyHeight;
+        float: left;
+        width: $bodyLeft;
+        background-color: $blockcolor;
+        text-align: center;
+        .file-body-group {
+            font-size: 0.7em;
+            .file-body-span {
+                width: 80%;
+                color: $grey;
+                text-align: left;
+                margin: 15px auto 0;
+                padding: 5px 0 5px 20px;
+                a {
+                    color: inherit;
+                }
+            }
+            & > ul {
+                margin: 0 auto;
+                width: 80%;
+                li {
+                    margin: 15px auto 0;
+                    //margin: 0 auto;
+                    padding: 10px 0 10px 20px;
+                    text-align: left;
+                    span {
+                        visibility: hidden;
+                    }
+                    a {
+                        color: $grey;
+                    }
+                }
+                li:hover{
+                    background-color: $lightgrey;
+                    border-radius: 5px;
+                    color: $primarybtn;
+                    cursor: pointer;
+                    a {
+                        color: inherit;
+                    }
+                }
+            }
+        }
+        .file-body-group:first-child {
+            .file-body-span:first-child {
+                padding: 15px 0 15px 20px;
+                background-color: $lightgrey;
+                border-radius: 5px;
+                color: $primarybtn;
+                a {
+                    color: inherit;
+                }
+            }
+        }
+    }
+    .file-body-right {
+        height: $bodyHeight;
+        float: left;
+        margin-left: 24px;
+        width: calc(100% - #{$bodyLeft} - 24px);
+        background-color: $blockcolor;
+        .right-header-content {
+            width: 92%;
+            margin: 0 auto 15px;
+            .body-right-header {
+                width: 100%;
+                margin-top: 40px;
+                $height: 35px; // 声明
+                .header-name {
+                    display: inline-block;
+                    line-height: $height;
+                    span {
+                        font-size: 1em;
+                    }
+                }
+                .header-tag {
+                    float: right;
+                    ul {
+                        li {
+                            padding: 0 20px;
+                            height: $height;
+                            text-align: center;
+                            border-radius: 50px;
+                            border: 1px $primarybtn solid;
+                            display: inline-block;
+                            margin-right: 24px;
+                            span {
+                                color: $primarybtn;
+                                line-height: $height;
+                            }
+                        }
+                        li:last-child {
+                            margin-right: 0;
+                            background-color: $lightBlue;
+                            span {
+                                color: white;
+                            }
+                        }
+                        li:hover{
+                            cursor: pointer;
+                            background-color: $primarybtn;
+                            span{
+                                color: white;
+                            }
+                        }
+
+                    }
+                }
+                .header-file-tag {
+                    margin-top: 30px;
+                    li {
+                        color: $lightgrey;
+                        text-align: left;
+                        display: inline-block;
+                        .box-all {
+                            display: inline-block;
+                            height: 15px;
+                            width: 15px;
+                            border: 1px solid $grey;
+                            margin-right: 20px;
+                            cursor: pointer;
+                            i {
+                                display: none;
+                                vertical-align: top;
+                                color: $grey;
+                            }
+                        }
+
+                    }
+                    li:nth-child(1) {
+                        width: 50%;
+                    }
+                    li:nth-child(2) {
+                        width: 30%;
+                    }
+                    li:nth-child(3) {
+                        width: 20%;
+                    }
+                }
+            }
+        }
+        .r_hr {
+            border-top: 1px solid $lightgrey;
+        }
+        .right-body-content {
+            width: 92%;
+            margin: 20px auto 0;
+            .content {
+                width: 100%;
+                $rowliheight: 50px;
+                .row {
+                    li {
+                        height: $rowliheight;
+                        border-bottom: 1px solid $lightgrey;
+                        ul {
+                            li {
+                                color: $grey;
+                                text-align: left;
+                                display: inline-block;
+                                .box-single {
+                                    display: inline-block;
+                                    height: 15px;
+                                    width: 15px;
+                                    border: 1px solid $grey;
+                                    margin-right: 20px;
+                                    cursor: pointer;
+                                    i {
+                                        vertical-align: top;
+                                        color: $grey;
+                                    }
+                                }
+                                .file-type {
+                                    display: inline-block;
+                                    background: url('../../../icon/30/file.png') no-repeat center;
+                                    vertical-align: middle;
+                                    height: 48px;
+                                    width: 48px;
+                                }
+                                span {
+                                    line-height: $rowliheight;
+                                }
+                            }
+                            li:nth-child(1) {
+                                width: 50%;
+                            }
+                            li:nth-child(2) {
+                                width: 30%;
+                            }
+                            li:nth-child(3) {
+                                width: 20%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
