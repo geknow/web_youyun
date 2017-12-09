@@ -1,5 +1,11 @@
 **
 !src
+!src/*
+!src/*/*
+!src/*/*/*
+!src/*/*/*/*
+
+
 !.babelrc
 !.eslintrc.json
 !eslint_auto_fix_test.js

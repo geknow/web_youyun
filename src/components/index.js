@@ -38,7 +38,9 @@ const FileUploadBodyContainer = connect(
             selectFile: (pathname) => {
                 dispatch({
                     type: 'selectFile',
-                    data: pathname.trim()
+                    data: {
+                        filename:pathname.trim()
+                    }
                 });
             }
         };

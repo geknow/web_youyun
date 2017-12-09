@@ -44,7 +44,8 @@
       2
     ],
     "no-console": 0,
-    "no-unused-vars":0
+    "no-unused-vars":0,
+    "no-extra-boolean-cast": 0
 
     // 检查引用的路径是否有误
     // 通过 {"commonjs": true, "amd": true} 来支持 commonjs 和 amd 方式的 require
