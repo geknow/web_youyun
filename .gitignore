@@ -1,16 +1,10 @@
-**
 
-# 文件夹
-!src/**/*
-!src/**/**/**/*
+.idea/
+node_modules/
+typings/
 
-#文件
-!.babelrc
-!.eslintrc.json
-!eslint_auto_fix_test.js
-!package.json
-!README.md
-!webpack.common.js
-!webpack.dev.js
-!webpack.prod.js
-!.gitignore
+info.txt
+png2svg.js
+test.html
+typings.json
+
