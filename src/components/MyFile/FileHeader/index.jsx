@@ -26,7 +26,7 @@ class FileHeader extends React.Component {
     render() {
         let {messageCount, showSetting, showSettingHandle} = this.props;
         return (
-            <div className="main-header clearfix">
+            <header className="main-header clearfix">
                 <div className="header-component header-logo-component">
                     <div className="logo-component"><a href=""><img src={logo} alt=""/></a></div>
                     <div className="logo-name">优云</div>
@@ -59,7 +59,7 @@ class FileHeader extends React.Component {
                         </li>
                     </ul>
                 </div>
-            </div>
+            </header>
         );
     }
 }

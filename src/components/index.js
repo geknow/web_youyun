@@ -48,6 +48,7 @@ const FileUploadBodyContainer = connect(
 )(FileUploadBody);
 import {FileExtractCodeBody} from './MyFile/FileExtractCodeBody/index.jsx';
 
+import {HomePageBody} from './HomePageBody/index.jsx';
 export {
     Footer,
 
@@ -55,5 +56,6 @@ export {
     FileBody,
     FileItemBody,
     FileUploadBodyContainer,
-    FileExtractCodeBody
+    FileExtractCodeBody,
+    HomePageBody
 };

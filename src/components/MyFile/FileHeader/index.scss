@@ -10,7 +10,7 @@ a {
 }
 
 @include cf('.clearfix');
-.main-header {
+header.main-header {
     position: relative;
     min-width: $headerMinWidth;
     height: $headerHeight;

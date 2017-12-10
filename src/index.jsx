@@ -9,6 +9,7 @@ import FileIndex from './containers/FileIndex';
 import FileItem from './containers/FileItem';
 import FileExtractCode from './containers/FileExtractCode';
 import FileUpload from './containers/FileUpload';
+import HomePage from './containers/HomePage';
 
 import rootReducer from './reducers/index';
 
@@ -27,7 +28,8 @@ ReactDOM.render(
             <Switch>
                 {/*目前url只是为了方便测试*/}
                 {/* 添加对应的router */}
-                <Route exact path="/" component={FileIndex}/>
+                <Route exact path="/" component={HomePage}/>
+                <Route exact path="/FileIndex" component={FileIndex}/>
                 <Route path="/FileUpload" component={FileUpload}/>
                 <Route path="/fileItem" component={FileItem}/>
                 <Route path="/FileExtractCode" component={FileExtractCode}/>

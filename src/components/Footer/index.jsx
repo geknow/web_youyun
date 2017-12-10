@@ -5,7 +5,7 @@ import 'font-awesome/scss/font-awesome.scss';
 class Footer extends React.Component {
     render() {
         return (
-            <div className="footer-component">
+            <footer className="footer-component">
                 <div className="footer-component-first">
                     <div className="footer-left">
                         <div><p>
@@ -30,7 +30,7 @@ class Footer extends React.Component {
                 <div className="footer-component-second">
                     <p>&copy;2017大连理工大学开发区校区 OurEDA实验室 ALL RIGHT RESERVED</p>
                 </div>
-            </div>
+            </footer>
         );
     }
 }
