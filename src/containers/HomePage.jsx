@@ -7,7 +7,7 @@ import '../scss/FileIndex.scss';
 class HomePage extends React.Component {
     render() {
         return (
-            <div className="container">
+            <div className="youyun-container">
                 <FileHeaderContainer />
                 <HomePageBody/>
                 <Footer/>

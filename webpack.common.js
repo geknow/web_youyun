@@ -6,11 +6,13 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const APP_PATH = path.resolve(__dirname, './src');
 let webpackConfig = {
     entry: {
-        'index': path.resolve(__dirname, 'src', 'index.jsx'),
+        'index': path.resolve(__dirname, 'src', 'index.js'),
     },
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        //css js资源加载
+        publicPath: 'http://localhost:8080/'
     },
     resolve: {
         //自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名
@@ -29,7 +31,7 @@ let webpackConfig = {
                 use: ['file-loader'],
                 include: APP_PATH
             },
-           
+
             {
                 test: /\.jsx?$/,
                 loaders: ['babel-loader?presets[]=react,presets[]=es2015'],
@@ -64,6 +66,12 @@ let webpackConfig = {
         }),
         new HtmlWebpackPlugin({
             title: 'hello'
+        }),
+        //必须要这个bootstrap才能找到jquery
+        new webpack.ProvidePlugin({
+            jQuery: 'jquery',
+            $: 'jquery',
+            jquery: 'jquery'
         })
     ]
 };

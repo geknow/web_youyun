@@ -39,8 +39,14 @@ const FileUploadBodyContainer = connect(
                 dispatch({
                     type: 'selectFile',
                     data: {
-                        filename:pathname.trim()
+                        filename: pathname.trim()
                     }
+                });
+            },
+            changeValue: (data) => {
+                dispatch({
+                    type: 'changeValue',
+                    data
                 });
             }
         };
@@ -49,6 +55,7 @@ const FileUploadBodyContainer = connect(
 import {FileExtractCodeBody} from './MyFile/FileExtractCodeBody/index.jsx';
 
 import {HomePageBody} from './HomePageBody/index.jsx';
+
 export {
     Footer,
 

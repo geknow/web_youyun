@@ -10,7 +10,7 @@ import '../scss/FileIndex.scss';
 class FileItem extends React.Component {
     render() {
         return (
-            <div className="container">
+            <div className="youyun-container">
                 <FileHeaderContainer />
                 <FileItemBody/>
                 <Footer/>

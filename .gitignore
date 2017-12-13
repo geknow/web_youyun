@@ -1,10 +1,8 @@
 
 .idea/
 node_modules/
-typings/
 
-info.txt
-png2svg.js
-test.html
-typings.json
+
+
+
 

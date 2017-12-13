@@ -1,0 +1,21 @@
+{
+  "name": "react-learn",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "GEKnow <ch.shanchuan@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/webhugo/web_youyun",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "crypto-js": "^3.1.9",
+    "jquery": "^3.2.1"
+  }
+}

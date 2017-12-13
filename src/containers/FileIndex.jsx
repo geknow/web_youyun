@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 class FileIndex extends React.Component {
     render() {
         return (
-            <div className="container">
+            <div className="youyun-container">
                 <FileHeaderContainer/>
                 <FileBody/>
                 <Footer/>

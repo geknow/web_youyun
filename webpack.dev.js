@@ -4,12 +4,20 @@ const webpack = require('webpack');
 module.exports = merge(common, {
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: './dist',
+        contentBase: '/',
         inline: true,
         hot: true,
         host: '0.0.0.0',
         port: 8080,
-        historyApiFallback: true
+        historyApiFallback: true,
+        proxy: {
+            '/api/*': {
+                target: 'http://210.30.100.189:8080/',
+                pathRewrite: {
+                    '^/api/' : '/'           // remove base path
+                }
+            }
+        }
     },
     // 使用hot-middleware不能使用extractCss，会引起冲突，让页面无法hot reload
     plugins: [
@@ -18,7 +26,7 @@ module.exports = merge(common, {
     module: {
         rules: [
             {
-                test: /\.scss$/,
+                test: /\.(scss|css)$/,
                 loaders: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]

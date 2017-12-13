@@ -10,7 +10,7 @@ import '../scss/FileIndex.scss';
 class FileExtractCode extends React.Component {
     render() {
         return (
-            <div className="container">
+            <div className="youyun-container">
                 <FileHeaderContainer />
                 <FileExtractCodeBody/>
                 <Footer/>
