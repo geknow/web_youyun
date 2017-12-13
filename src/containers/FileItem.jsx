@@ -3,7 +3,8 @@
  */
 
 import React from 'react';
-import {FileHeaderContainer, FileItemBody, Footer} from '../components/index';
+import {FileItemBody, Footer} from '../components/index';
+import FileHeaderContainer from './FileHeader';
 import '../scss/FileIndex.scss';
 
 

@@ -13,6 +13,9 @@ const FileUploadReducer = (state = initStat, action) => {
         case 'changeValue':
             Object.assign(newState, action.data);
             return newState;
+        case 'uploadSuccess':
+            Object.assign(newState, action.data);
+            return newState;
         default:
             return newState;
     }

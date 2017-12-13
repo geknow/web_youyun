@@ -7,7 +7,7 @@ import 'font-awesome/scss/font-awesome.scss';
 const $ = require('jquery');
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-
+import {Redirect} from 'react-router-dom';
 
 import {getMyMIME} from '../../../service/fileHelper';
 
@@ -42,85 +42,110 @@ class FileUploadBody extends React.Component {
         let reader = new FileReader();
         let md5;
         let size = file.size;
-        let P = new Promise((resolve, reject) => {
+        let type = file.type;
+        let MIME = getMyMIME(type);
+        let obj = {
+            name: file.name,
+            description: this.props.description,
+            leftAllowDownloadCount: this.props.leftAllowDownloadCount,
+            share: this.props.share,
+            expireTime: this.props.expireTime
+        };
+        new Promise((resolve, reject) => {
             reader.onload = function (event) {
                 let binary = event.target.result;
                 md5 = CryptoJS.MD5(binary).toString();
                 resolve();
             };
             reader.readAsBinaryString(file);
-        });
-        P = P.then(() => {
-
-            return new Promise((resolve, reject) => {
-                fetch('/api/file/uploadCheck', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        md5,
-                        size
-                    }),
-                    headers: {'Content-Type': 'application/json'}
-                }).then(function (response) {
-                    return response.json();
-                }).then(function (data) {
-                    resolve(data);
-                });
-            });
-        });
-        P = P.then((data) => {
-
-            if (!!data.success) {
-                that.refs['progress'].style.display = 'block';
-                let type = file.type;
-                let MIME = getMyMIME(type);
-                let obj = {
-                    name: file.name,
-                    description: this.props.description,
-                    leftAllowDownloadCount: this.props.leftAllowDownloadCount,
-                    share: this.props.share,
-                    expireTime: this.props.expireTime
-                };
-
-                let formData = new FormData();
-                formData.append('file', file);
-                formData.append('md5', md5);
-                formData.append('size', size);
-                formData.append('MIME', MIME);
+        })
+            .then(() => {
+                let body = {};
                 Object.keys(obj).forEach(key => {
                     if (!!obj[key])
-                        formData.append(key, obj[key]);
+                        body[key] = obj[key];
                 });
-                // 上传进度回调函数：
-                let progressHandlingFunction = (e) => {
-                    if (event.lengthComputable) {
-                        let percent = Math.floor(event.loaded / event.total * 100);
-                        that.refs['progressBar'].style.width = `${percent}%`;
-                        that.refs['percent'].innerHTML = `${percent}%`;
-
-                    }
-                };
-                //ajax 异步上传
-                $.ajax({
-                    url: '/api/file/upload',
-                    type: 'POST',
-                    data: formData,
-                    xhr: function () { // 获取 ajaxSettings 中的 xhr 对象，为它的 upload 属性绑定 progress 事件的处理函数
-
-                        let myXhr = $.ajaxSettings.xhr();
-                        if (myXhr.upload) { // 检查 upload 属性是否存在
-                            // 绑定 progress 事件的回调函数
-                            myXhr.upload.addEventListener('progress', progressHandlingFunction, false);
+                body['md5'] = md5;
+                body['size'] = size;
+                that.refs['progress'].style.display = 'block';
+                return new Promise((resolve, reject) => {
+                    fetch('/api/file/uploadCheck', {
+                        method: 'POST',
+                        body: JSON.stringify(body),
+                        headers: {'Content-Type': 'application/json'}
+                    }).then(function (response) {
+                        return response.json();
+                    }).then(function (data) {
+                        resolve(data);
+                    });
+                });
+            })
+            .then((data) => {
+                console.log(data);
+                let {uploadSuccess} = that.props;
+                if (!data.success) {
+                    that.refs['progressBar'].style.width = '100%';
+                    that.refs['percent'].innerHTML = '100%';
+                    setTimeout(() => {
+                        uploadSuccess({
+                            extractCode: data['msg'],
+                            filename: file.name,
+                            redirect: true,
+                            time: new Date(),
+                            description:that.props.description
+                        });
+                    }, 1000);
+                } else {
+                    let formData = new FormData();
+                    formData.append('file', file);
+                    formData.append('md5', md5);
+                    formData.append('size', size);
+                    formData.append('MIME', MIME);
+                    Object.keys(obj).forEach(key => {
+                        if (!!obj[key])
+                            formData.append(key, obj[key]);
+                    });
+                    // 上传进度回调函数：
+                    let progressHandlingFunction = (e) => {
+                        if (event.lengthComputable) {
+                            let percent = Math.floor(event.loaded / event.total * 100);
+                            that.refs['progressBar'].style.width = `${percent}%`;
+                            that.refs['percent'].innerHTML = `${percent}%`;
                         }
-                        return myXhr; //xhr 对象返回给 jQuery 使用
-                    },
-                    success: function (result) {
-                        console.log(result);
-                    },
-                    contentType: false, // 必须 false 才会自动加上正确的 Content-Type
-                    processData: false  // 必须 false 才会避开 jQuery 对 formdata 的默认处理
-                });
-            }
-        });
+                    };
+                    //ajax 异步上传
+                    $.ajax({
+                        url: '/api/file/upload',
+                        type: 'POST',
+                        data: formData,
+                        xhr: function () { // 获取 ajaxSettings 中的 xhr 对象，为它的 upload 属性绑定 progress 事件的处理函数
+
+                            let myXhr = $.ajaxSettings.xhr();
+                            if (myXhr.upload) { // 检查 upload 属性是否存在
+                                // 绑定 progress 事件的回调函数
+                                myXhr.upload.addEventListener('progress', progressHandlingFunction, false);
+                            }
+                            return myXhr; //xhr 对象返回给 jQuery 使用
+                        },
+                        success: function (result) {
+                            console.log(result);
+                            if (!!result['success']) {
+                                setTimeout(() => {
+                                    uploadSuccess({
+                                        extractCode: result['data'],
+                                        filename: file.name,
+                                        redirect: true,
+                                        time: new Date(),
+                                        description:that.props.description
+                                    });
+                                }, 1000);
+                            }
+                        },
+                        contentType: false, // 必须 false 才会自动加上正确的 Content-Type
+                        processData: false  // 必须 false 才会避开 jQuery 对 formdata 的默认处理
+                    });
+                }
+            });
 
 
     }
@@ -139,12 +164,10 @@ class FileUploadBody extends React.Component {
                 return;
             data['leftAllowDownloadCount'] = value;
         } else {
-
             if (value === 'on') {
                 data[name] = null;
             } else {
                 data[name] = value;
-
             }
         }
         changeValue(data);
@@ -152,7 +175,10 @@ class FileUploadBody extends React.Component {
 
     render() {
 
-        let {filename} = this.props;
+        let {filename, redirect} = this.props;
+        if (!!redirect) {
+            return <Redirect from={'/file/upload'} to={'/file/code'}/>;
+        }
         return (
             <div className="upload-body">
                 <div>

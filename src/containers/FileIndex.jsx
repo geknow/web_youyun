@@ -1,7 +1,7 @@
 import React from 'react';
-import {FileHeaderContainer, FileBody, Footer} from '../components/index';
+import {FileBody, Footer} from '../components/index';
+import FileHeaderContainer from './FileHeader';
 import '../scss/FileIndex.scss';
-import {connect} from 'react-redux';
 
 
 
