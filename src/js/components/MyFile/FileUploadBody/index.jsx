@@ -37,117 +37,23 @@ class FileUploadBody extends React.Component {
     }
 
     handleSubmit() {
-        let that = this;
-        let file = this.refs.file.files[0];
-        let reader = new FileReader();
-        let md5;
-        let size = file.size;
-        let type = file.type;
-        let MIME = getMyMIME(type);
-        let obj = {
+        let {uploadFile} = this.props;
+        let file = this.refs['file'].files[0];
+        let body = {
             name: file.name,
             description: this.props.description,
             leftAllowDownloadCount: this.props.leftAllowDownloadCount,
             share: this.props.share,
-            expireTime: this.props.expireTime
+            expireTime: this.props.expireTime,
+            size: file.size,
+            MIME: getMyMIME(file.type)
         };
-        new Promise((resolve, reject) => {
-            reader.onload = function (event) {
-                let binary = event.target.result;
-                md5 = CryptoJS.MD5(binary).toString();
-                resolve();
-            };
-            reader.readAsBinaryString(file);
-        })
-            .then(() => {
-                let body = {};
-                Object.keys(obj).forEach(key => {
-                    if (!!obj[key])
-                        body[key] = obj[key];
-                });
-                body['md5'] = md5;
-                body['size'] = size;
-                that.refs['progress'].style.display = 'block';
-                return new Promise((resolve, reject) => {
-                    fetch('/api/file/uploadCheck', {
-                        method: 'POST',
-                        body: JSON.stringify(body),
-                        headers: {'Content-Type': 'application/json'}
-                    }).then(function (response) {
-                        return response.json();
-                    }).then(function (data) {
-                        resolve(data);
-                    });
-                });
-            })
-            .then((data) => {
-                console.log(data);
-                let {uploadSuccess} = that.props;
-                if (!data.success) {
-                    that.refs['progressBar'].style.width = '100%';
-                    that.refs['percent'].innerHTML = '100%';
-                    setTimeout(() => {
-                        uploadSuccess({
-                            extractCode: data['msg'],
-                            filename: file.name,
-                            redirect: true,
-                            time: new Date(),
-                            description:that.props.description
-                        });
-                    }, 1000);
-                } else {
-                    let formData = new FormData();
-                    formData.append('file', file);
-                    formData.append('md5', md5);
-                    formData.append('size', size);
-                    formData.append('MIME', MIME);
-                    Object.keys(obj).forEach(key => {
-                        if (!!obj[key])
-                            formData.append(key, obj[key]);
-                    });
-                    // 上传进度回调函数：
-                    let progressHandlingFunction = (e) => {
-                        if (event.lengthComputable) {
-                            let percent = Math.floor(event.loaded / event.total * 100);
-                            that.refs['progressBar'].style.width = `${percent}%`;
-                            that.refs['percent'].innerHTML = `${percent}%`;
-                        }
-                    };
-                    //ajax 异步上传
-                    $.ajax({
-                        url: '/api/file/upload',
-                        type: 'POST',
-                        data: formData,
-                        xhr: function () { // 获取 ajaxSettings 中的 xhr 对象，为它的 upload 属性绑定 progress 事件的处理函数
-
-                            let myXhr = $.ajaxSettings.xhr();
-                            if (myXhr.upload) { // 检查 upload 属性是否存在
-                                // 绑定 progress 事件的回调函数
-                                myXhr.upload.addEventListener('progress', progressHandlingFunction, false);
-                            }
-                            return myXhr; //xhr 对象返回给 jQuery 使用
-                        },
-                        success: function (result) {
-                            console.log(result);
-                            if (!!result['success']) {
-                                setTimeout(() => {
-                                    uploadSuccess({
-                                        extractCode: result['data'],
-                                        filename: file.name,
-                                        redirect: true,
-                                        time: new Date(),
-                                        description:that.props.description
-                                    });
-                                }, 1000);
-                            }
-                        },
-                        contentType: false, // 必须 false 才会自动加上正确的 Content-Type
-                        processData: false  // 必须 false 才会避开 jQuery 对 formdata 的默认处理
-                    });
-                }
-            });
-
-
+        let data = {
+            body,
+            result: event.target.result,
+            file
+        };
+        uploadFile(data);
     }
 
     handleChange(event) {
@@ -174,11 +80,12 @@ class FileUploadBody extends React.Component {
     }
 
     render() {
-
-        let {filename, redirect} = this.props;
+        let {filename, redirect, uploading, progress} = this.props;
+        let percent = !!progress ? `${progress}%` : 0;
         if (!!redirect) {
             return <Redirect from={'/file/upload'} to={'/file/code'}/>;
         }
+
         return (
             <div className="upload-body">
                 <div>
@@ -197,11 +104,11 @@ class FileUploadBody extends React.Component {
                             {/*进度条*/}
 
                             <div className="progress progress-striped active"
-                                 style={{display: 'none'}} ref={'progress'}>
+                                 style={{display: uploading ? 'block' : 'none'}}>
                                 <div className="progress-bar progress-bar-info" role="progressbar"
                                      aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                     style={{width: '0%'}} ref={'progressBar'}>
-                                    <span ref={'percent'}/>
+                                     style={{width: percent}}>
+                                    <span>{percent}</span>
                                 </div>
                             </div>
 

@@ -1,5 +1,5 @@
-@import '../../scss/common/base';
-@import '../../scss/common/color';
+@import '../../../scss/common/base';
+@import '../../../scss/common/color';
 
 $bodyMinWidth: 525px;
 $bodyMarginBottom: 50px;
@@ -37,14 +37,14 @@ $bodyMarginTop: 50px;
         }
         section {
             .caption {
-                background: url("../../icon/wave1.png") center no-repeat;
+                background: url("../../../icon/wave1.png") center no-repeat;
                 height: 171px;
                 width: 100%;
                 .body-logo {
 
                     height: 72px;
                     width: 47px;
-                    background: url("../../icon/lock.png") center no-repeat;
+                    background: url("../../../icon/lock.png") center no-repeat;
                     margin: 20px auto;
                 }
                 p {

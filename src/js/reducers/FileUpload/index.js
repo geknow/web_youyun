@@ -6,15 +6,17 @@ let initStat = {
 const FileUploadReducer = (state = initStat, action) => {
     let newState = {};
     Object.assign(newState, state);
+    Object.assign(newState, action.data);
     switch (action.type) {
         case 'selectFile':
-            Object.assign(newState, action.data);
             return newState;
         case 'changeValue':
-            Object.assign(newState, action.data);
             return newState;
-        case 'uploadSuccess':
-            Object.assign(newState, action.data);
+        case 'redirect':
+            return newState;
+        case 'uploading':
+            return newState;
+        case 'progress':
             return newState;
         default:
             return newState;

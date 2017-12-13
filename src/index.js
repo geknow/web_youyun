@@ -3,13 +3,21 @@ import {Provider} from 'react-redux';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import React from 'react';
 
-import FileIndex from './containers/FileIndex';
-import FileItem from './containers/FileItem';
-import FileExtractCode from './containers/FileExtractCode';
-import FileUpload from './containers/FileUpload';
-import HomePage from './containers/HomePage';
-import store from './store';
+import FileIndex from './js/containers/FileIndex';
+import FileItem from './js/containers/FileItem';
+import FileExtractCode from './js/containers/FileExtractCode';
+import FileUpload from './js/containers/FileUpload';
+import HomePage from './js/containers/HomePage';
 
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import rootReducer from './js/reducers/index';
+
+const store = createStore(
+    rootReducer,
+    applyMiddleware(thunk, logger)
+);
 
 
 let App = document.createElement('div');

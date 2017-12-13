@@ -1,6 +1,6 @@
 import './index.scss';
 import React from 'react';
-import logo from '../../../icon/logo.png';
+import logo from '../../../../icon/logo.png';
 import 'font-awesome/scss/font-awesome.scss';
 
 let Message = ({messageCount}) => {

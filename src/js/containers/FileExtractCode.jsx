@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import React from 'react';
 import {FileExtractCodeBody, Footer} from '../components/index';
 import FileHeaderContainer from './FileHeader';
-import '../scss/FileIndex.scss';
+import '../../scss/FileIndex.scss';
 
 
 const FileExtractCodeBodyContainer = connect(
