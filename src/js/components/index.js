@@ -1,23 +1,20 @@
-
-
-
 // common
-import {Footer} from './Footer/index.jsx';
+import FooterComponent from './Footer/index.jsx';
 
 // file
-import {FileHeader} from './MyFile/FileHeader/index.jsx';
-import {FileBody} from './MyFile/FileBody/index.jsx';
-import {FileItemBody} from './MyFile/FileItemBody/index.jsx';
-import {FileUploadBody} from './MyFile/FileUploadBody/index.jsx';
-import {FileExtractCodeBody} from './MyFile/FileExtractCodeBody/index.jsx';
-import {HomePageBody} from './HomePageBody/index.jsx';
+import FileHeaderComponent from './FileHeader/index.jsx';
+import FilePersonalCenterComponent from './FilePersonalCenter/index.jsx';
+import FileItemComponent from './FileItem/index.jsx';
+import FileUploadComponent from './FileUpload/index.jsx';
+import FileExtractCodeComponent from './FileExtractCode/index.jsx';
+import FileDownloadComponent from './FileDownload/index.jsx';
 
 export {
-    Footer,
-    FileHeader,
-    FileBody,
-    FileItemBody,
-    FileUploadBody,
-    FileExtractCodeBody,
-    HomePageBody
+    FooterComponent,
+    FileHeaderComponent,
+    FilePersonalCenterComponent,
+    FileItemComponent,
+    FileUploadComponent,
+    FileExtractCodeComponent,
+    FileDownloadComponent
 };

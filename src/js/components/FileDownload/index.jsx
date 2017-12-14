@@ -5,7 +5,7 @@ import 'font-awesome/scss/font-awesome.scss';
 
 let $ = require('jquery');
 
-class HomePageBody extends React.Component {
+export default class FileDownloadComponent extends React.Component {
 
     constructor(props) {
         super(props);
@@ -63,5 +63,3 @@ class HomePageBody extends React.Component {
         );
     }
 }
-
-export {HomePageBody};

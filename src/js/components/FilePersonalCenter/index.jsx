@@ -4,7 +4,7 @@ import React from 'react';
 import 'font-awesome/scss/font-awesome.scss';
 
 
-class FileBody extends React.Component {
+export default class FilePersonalCenterComponent extends React.Component {
     render() {
         return (
             <div className="file-body clearfix">
@@ -156,4 +156,3 @@ class FileBody extends React.Component {
     }
 }
 
-export {FileBody};

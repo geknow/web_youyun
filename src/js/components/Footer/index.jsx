@@ -2,7 +2,7 @@ import './index.scss';
 import React from 'react';
 import 'font-awesome/scss/font-awesome.scss';
 
-class Footer extends React.Component {
+export default class FooterComponent extends React.Component {
     render() {
         return (
             <footer className="footer-component">
@@ -36,4 +36,3 @@ class Footer extends React.Component {
 }
 
 
-export { Footer };

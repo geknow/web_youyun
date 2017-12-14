@@ -4,7 +4,7 @@ import React from 'react';
 import 'font-awesome/scss/font-awesome.scss';
 
 
-class FileExtractCodeBody extends React.Component {
+export default  class FileExtractCodeComponent extends React.Component {
     render() {
         let {extractCode, filename, time,description,username} = this.props;
         let data = new Date(time);
@@ -50,4 +50,3 @@ class FileExtractCodeBody extends React.Component {
     }
 }
 
-export {FileExtractCodeBody};

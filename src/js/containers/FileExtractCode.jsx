@@ -3,12 +3,10 @@
  */
 import {connect} from 'react-redux';
 import React from 'react';
-import {FileExtractCodeBody, Footer} from '../components/index';
-import FileHeaderContainer from './FileHeader';
-import '../../scss/FileIndex.scss';
+import {FileExtractCodeComponent} from '../components/index';
 
 
-const FileExtractCodeBodyContainer = connect(
+export default connect(
     (state) => {
         return {
             ...state.FileExtractCodeReducer,
@@ -21,18 +19,7 @@ const FileExtractCodeBodyContainer = connect(
     (dispatch) => {
         return {};
     }
-)(FileExtractCodeBody);
+)(FileExtractCodeComponent);
 
-class FileExtractCode extends React.Component {
-    render() {
-        return (
-            <div className="youyun-container">
-                <FileHeaderContainer/>
-                <FileExtractCodeBodyContainer/>
-                <Footer/>
-            </div>
-        );
-    }
-}
 
-export default FileExtractCode;
+

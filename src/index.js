@@ -3,11 +3,13 @@ import {Provider} from 'react-redux';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import React from 'react';
 
-import FileIndex from './js/containers/FileIndex';
-import FileItem from './js/containers/FileItem';
-import FileExtractCode from './js/containers/FileExtractCode';
-import FileUpload from './js/containers/FileUpload';
-import HomePage from './js/containers/HomePage';
+import {
+    FilePersonalCenterPage,
+    FileItemPage,
+    FileUploadPage,
+    FileDownloadPage,
+    FileExtractCodePage
+} from './js/views';
 
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
@@ -30,11 +32,11 @@ ReactDOM.render(
             <Switch>
                 {/*目前url只是为了方便测试*/}
                 {/* 添加对应的router */}
-                <Route exact path="/" component={HomePage}/>
-                <Route exact path="/file/" component={FileIndex}/>
-                <Route exact path="/file/upload" component={FileUpload}/>
-                <Route path="/file/index" component={FileItem}/>
-                <Route path="/file/code" component={FileExtractCode}/>
+                <Route exact path="/" component={FileDownloadPage}/>
+                <Route exact path="/file/center" component={FilePersonalCenterPage}/>
+                <Route exact path="/file/upload" component={FileUploadPage}/>
+                <Route path="/file/index" component={FileItemPage}/>
+                <Route path="/file/code" component={FileExtractCodePage}/>
             </Switch>
         </BrowserRouter>
     </Provider>,

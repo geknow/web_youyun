@@ -9,7 +9,7 @@ import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Redirect} from 'react-router-dom';
 
-import {getMyMIME} from '../../../service/fileHelper';
+import {getMyMIME} from '../../service/fileHelper';
 
 let FileName = (props) => {
     if (!props.filename) {
@@ -23,7 +23,7 @@ let FileName = (props) => {
     );
 };
 
-class FileUploadBody extends React.Component {
+export default  class FileUploadComponent extends React.Component {
     constructor(props) {
         super(props);
         this.handleSelectFile = this.handleSelectFile.bind(this);
@@ -154,4 +154,3 @@ class FileUploadBody extends React.Component {
     }
 }
 
-export {FileUploadBody};

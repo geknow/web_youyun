@@ -1,9 +1,8 @@
 import {connect} from 'react-redux';
 import React from 'react';
-import {FileHeader} from '../components/index';
-import '../../scss/FileIndex.scss';
+import {FileHeaderComponent} from '../components/index';
 
-const FileHeaderContainer = connect(
+export default connect(
     (state) => {
         return {
             ...state.FileHeaderReducer
@@ -18,6 +17,5 @@ const FileHeaderContainer = connect(
             }
         };
     }
-)(FileHeader);
+)(FileHeaderComponent);
 
-export default FileHeaderContainer;

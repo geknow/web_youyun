@@ -1,12 +1,10 @@
 import {connect} from 'react-redux';
 import React from 'react';
-import {FileUploadBody, Footer} from '../components/index';
-import FileHeaderContainer from './FileHeader';
-import '../../scss/FileIndex.scss';
-import {getmd5, uploadFile, checkUploadFile} from '../actions/MyFile/FileUploadBody/index';
+import {FileUploadComponent} from '../components/index';
+import {getmd5, uploadFile, checkUploadFile} from '../actions/FileUpload';
 
 
-const FileUploadBodyContainer = connect(
+export default connect(
     (state) => {
         return {
             ...state.FileUploadReducer
@@ -31,7 +29,7 @@ const FileUploadBodyContainer = connect(
             uploadFile: async (data) => {
                 dispatch({
                     type: 'uploading',
-                    data:{
+                    data: {
                         uploading: true
                     }
                 });
@@ -50,7 +48,7 @@ const FileUploadBodyContainer = connect(
                     });
                     code = result['msg'];
                 } else {
-                    code = await uploadFile(data.file,body,dispatch);
+                    code = await uploadFile(data.file, body, dispatch);
                 }
 
                 setTimeout(() => {
@@ -68,18 +66,5 @@ const FileUploadBodyContainer = connect(
             }
         };
     }
-)(FileUploadBody);
+)(FileUploadComponent);
 
-class FileUpload extends React.Component {
-    render() {
-        return (
-            <div className="youyun-container">
-                <FileHeaderContainer/>
-                <FileUploadBodyContainer/>
-                <Footer/>
-            </div>
-        );
-    }
-}
-
-export default FileUpload;

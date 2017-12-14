@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
-import FileHeaderReducer from './FileHeader/index';
-import FileUploadReducer from './FileUpload/index';
-import FileExtractCodeReducer from './FileExtractCode/index';
+import FileHeaderReducer from './FileHeader';
+import FileUploadReducer from './FileUpload';
+import FileExtractCodeReducer from './FileExtractCode';
 
 export default combineReducers({
     FileHeaderReducer,

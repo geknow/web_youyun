@@ -4,7 +4,7 @@
 
 import {connect} from 'react-redux';
 import React from 'react';
-import {FileItemComponent} from '../components/index';
+import {FilePersonalCenterComponent} from '../components/index';
 
 
 export default connect(
@@ -14,5 +14,5 @@ export default connect(
     (dispatch) => {
         return {};
     }
-)(FileItemComponent);
+)(FilePersonalCenterComponent);
 

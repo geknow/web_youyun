@@ -4,7 +4,7 @@ import React from 'react';
 import 'font-awesome/scss/font-awesome.scss';
 
 
-class FileItemBody extends React.Component {
+export default class FileItemComponent extends React.Component {
     render() {
         return (
             <div className="itemBody">
@@ -166,4 +166,3 @@ class FileItemBody extends React.Component {
     }
 }
 
-export {FileItemBody};

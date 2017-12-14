@@ -1,6 +1,6 @@
 import './index.scss';
 import React from 'react';
-import logo from '../../../../icon/logo.png';
+import logo from '../../../icon/logo.png';
 import 'font-awesome/scss/font-awesome.scss';
 
 let Message = ({messageCount}) => {
@@ -21,7 +21,7 @@ let Setting = () => <div id="header-setting">
     </ul>
 </div>;
 
-class FileHeader extends React.Component {
+export default class FileHeaderComponent extends React.Component {
 
     render() {
         let {messageCount, showSetting, showSettingHandle} = this.props;
@@ -64,5 +64,3 @@ class FileHeader extends React.Component {
     }
 }
 
-
-export {FileHeader};

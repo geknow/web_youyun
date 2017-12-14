@@ -1,5 +1,5 @@
-@import '../../../../scss/common/base';
-@import '../../../../scss/common/color';
+@import '../../../scss/common/base';
+@import '../../../scss/common/color';
 
 $bodyWidth: 774px;
 $bodyMarginBottom: 50px;
@@ -76,7 +76,7 @@ $bodyMarginBottom: 50px;
                 width: 48px;
                 height: 48px;
                 display: inline-block;
-                background: url('../../../../icon/pc.png') no-repeat center;
+                background: url('../../../icon/pc.png') no-repeat center;
                 vertical-align: middle;
                 position: relative;
             }
