@@ -12,7 +12,7 @@ module.exports = merge(common, {
         historyApiFallback: true,
         proxy: {
             '/api/*': {
-                target: 'http://210.30.100.189:8080/',
+                target: 'http://localhost:8081/',
                 pathRewrite: {
                     '^/api/' : '/'           // remove base path
                 }

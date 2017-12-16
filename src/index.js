@@ -35,7 +35,7 @@ ReactDOM.render(
                 <Route exact path="/" component={FileDownloadPage}/>
                 <Route exact path="/file/center" component={FilePersonalCenterPage}/>
                 <Route exact path="/file/upload" component={FileUploadPage}/>
-                <Route path="/file/index" component={FileItemPage}/>
+                <Route path="/file/item" component={FileItemPage}/>
                 <Route path="/file/code" component={FileExtractCodePage}/>
             </Switch>
         </BrowserRouter>

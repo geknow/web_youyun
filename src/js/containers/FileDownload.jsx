@@ -5,9 +5,18 @@ import {FileDownloadComponent} from '../components/index';
 
 export default connect(
     (state) => {
-        return {};
+        return {
+            ...state.FileDownloadReducer
+        };
     },
     (dispatch) => {
-        return {};
+        return {
+            handleCodeErr: (data) => {
+                dispatch({
+                    type: 'codeerror',
+                    data
+                });
+            }
+        };
     }
 )(FileDownloadComponent);

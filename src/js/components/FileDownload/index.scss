@@ -62,6 +62,7 @@ $bodyMarginTop: 50px;
 
             .main-body {
                 background-color: $blockcolor;
+                position: relative;
                 .info {
                     margin: 50px auto;
                     p {
@@ -84,6 +85,20 @@ $bodyMarginTop: 50px;
                     }
                     input:focus{
                         outline: none;
+                    }
+                }
+                .extract-code-text-err input{
+                    border: 1px solid red;
+                }
+                .code-tips{
+                    margin-top: 10px;
+                    position: absolute;
+                    font-size: 2em;
+                    color: red;
+                    left:0;
+                    right: 0;
+                    p{
+                        text-align: center;
                     }
                 }
                 .submit-btn{

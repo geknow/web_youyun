@@ -2,7 +2,7 @@ import './index.scss';
 import React from 'react';
 import logo from '../../../icon/logo.png';
 import 'font-awesome/scss/font-awesome.scss';
-
+import {Link} from 'react-router-dom';
 let Message = ({messageCount}) => {
     return (
         <div id="header-message">
@@ -28,15 +28,15 @@ export default class FileHeaderComponent extends React.Component {
         return (
             <header className="main-header clearfix">
                 <div className="header-component header-logo-component">
-                    <div className="logo-component"><a href=""><img src={logo} alt=""/></a></div>
+                    <div className="logo-component"><Link to={'/'}><img src={logo} alt=""/></Link></div>
                     <div className="logo-name">优云</div>
                 </div>
                 <div className="header-component header-nav-component">
                     <ul>
                         <li><a href="">首页</a></li>
                         <li><a href="">发现广场</a></li>
-                        <li><a href="">我要上传</a></li>
-                        <li><a href="">我的文件</a></li>
+                        <li><Link to={'/file/upload'}>我要上传</Link></li>
+                        <li><Link to={'/file/center'}>我的文件</Link></li>
                     </ul>
                 </div>
                 <div className="header-component header-search-component">

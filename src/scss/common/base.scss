@@ -1,31 +1,32 @@
 @import "~normalize.css";
 @import "./color.scss";
 
-
 * {
-  margin : 0;
-  padding : 0;
-  box-sizing: border-box;
-  font-family: "微软雅黑",sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "微软雅黑", sans-serif;
 }
-body{
-  background-color: $backgroudcolor;
+
+body {
+    background-color: $backgroudcolor;
 }
-ul{
-  list-style-type: none;
+
+ul {
+    list-style-type: none;
 }
 
 // BFC解决父元素塌陷和margin复用问题
-@mixin cf($className:cf){
-  #{$className}:before,
-  #{$className}:after {
-    content: " ";
-    display: table;
-  }
-  #{$className}:after {
-    clear: both;
-  }
-  #{$className} {
-    *zoom: 1;
-  }
+@mixin cf($className:cf) {
+    #{$className}:before,
+    #{$className}:after {
+        content: " ";
+        display: table;
+    }
+    #{$className}:after {
+        clear: both;
+    }
+    #{$className} {
+        *zoom: 1;
+    }
 }
