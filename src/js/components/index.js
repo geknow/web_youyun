@@ -8,6 +8,8 @@ import FileItemComponent from './FileItem/index.jsx';
 import FileUploadComponent from './FileUpload/index.jsx';
 import FileExtractCodeComponent from './FileExtractCode/index.jsx';
 import FileDownloadComponent from './FileDownload/index.jsx';
+import SquareNavComponent from './SquareNav/index.jsx';
+import SquareItemsComponent from './SquareItems/index.jsx';
 
 export {
     FooterComponent,
@@ -16,5 +18,7 @@ export {
     FileItemComponent,
     FileUploadComponent,
     FileExtractCodeComponent,
-    FileDownloadComponent
+    FileDownloadComponent,
+    SquareNavComponent,
+    SquareItemsComponent
 };

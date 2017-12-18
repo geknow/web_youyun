@@ -1,0 +1,62 @@
+@import '../../../scss/common/base';
+@import '../../../scss/common/color';
+
+.square-nav {
+    position: relative;
+    top: -49px;
+
+    .not-important {
+        height: 2px;
+        width: 100%;
+        background-color: $blockcolor;
+    }
+    nav.square-nav-content {
+
+        display: flex;
+        flex-direction: column;
+        background-color: $blockcolor;
+
+        .square-nav-type {
+            margin: 20px 0;
+            ul {
+                display: flex;
+                justify-content: center;
+                li {
+                    a {
+                        text-decoration: none;
+                    }
+                    span {
+                        color: black;
+                    }
+                    width: 100px;
+                    text-align: center;
+                }
+            }
+        }
+
+        .square-nav-items {
+            margin-bottom: 20px;
+            ul {
+                display: flex;
+                justify-content: center;
+                li {
+                    font-size: 1.5em;
+                    width: 100px;
+                    text-align: center;
+                    padding-bottom: 10px;
+                    border-bottom: 3px solid transparent;
+                    &:hover {
+                        border-bottom: 3px solid black;
+                    }
+                    a {
+                        text-decoration: none;
+                    }
+                    span {
+                        color: $grey;
+                    }
+
+                }
+            }
+        }
+    }
+}

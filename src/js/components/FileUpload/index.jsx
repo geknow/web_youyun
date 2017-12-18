@@ -1,10 +1,8 @@
 import './index.scss';
 import React from 'react';
 
-const CryptoJS = require('crypto-js');
 import 'font-awesome/scss/font-awesome.scss';
 
-const $ = require('jquery');
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Redirect} from 'react-router-dom';
@@ -56,6 +54,7 @@ export default  class FileUploadComponent extends React.Component {
         uploadFile(data);
     }
 
+    //委托事件
     handleChange(event) {
         let {changeValue} = this.props;
         let data = {};

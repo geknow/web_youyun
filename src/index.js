@@ -8,7 +8,8 @@ import {
     FileItemPage,
     FileUploadPage,
     FileDownloadPage,
-    FileExtractCodePage
+    FileExtractCodePage,
+    SqaureFoundPage
 } from './js/views';
 
 import {createStore, applyMiddleware} from 'redux';
@@ -37,6 +38,8 @@ ReactDOM.render(
                 <Route exact path="/file/upload" component={FileUploadPage}/>
                 <Route path="/file/item" component={FileItemPage}/>
                 <Route path="/file/code" component={FileExtractCodePage}/>
+
+                <Route path={'/square/found'} component={SqaureFoundPage}/>
             </Switch>
         </BrowserRouter>
     </Provider>,
