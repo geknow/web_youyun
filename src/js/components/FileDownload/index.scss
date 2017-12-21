@@ -110,11 +110,7 @@ $bodyMarginTop: 50px;
                     line-height: 45px;
                     margin: 100px auto;
                     cursor: pointer;
-                    &:hover{
-                        color: $primarybtn;
-                        transform: translateY(-1px);
-                        box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
-                    }
+                    @include setBtnHoverShadowAndColor($primarybtn);
                     span{
                         color: white;
                         font-weight: 500;

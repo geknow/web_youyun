@@ -1,0 +1,108 @@
+@import '../../../../scss/common/base';
+@import '../../../../scss/common/color';
+
+@include cf('.clearfix')
+.square-item {
+    //必须
+    break-inside: avoid;
+
+    padding: 10px;
+
+    //display: flex;
+    //flex-direction: column;
+    //justify-content: space-around;
+    .item {
+        background-color: $blockcolor;
+        padding: 30px 30px 20px 30px;
+
+        .item-fileinfo {
+            padding-bottom: 20px;
+            border-bottom: 1px solid $lightgrey;
+            //浮动 文字萦绕
+            .item-type {
+                height: 91px;
+                margin-right: 20px;
+                float: left;
+            }
+            span {
+                font-size: 1.7em;
+                font-weight: 500;
+            }
+            p {
+                margin-top: 10px;
+                color: $grey;
+            }
+
+        }
+        .item-main {
+            padding: 15px 0;
+            border-bottom: 1px solid $lightgrey;
+            ul{
+                li{
+                    padding: 5px 0 5px 30px;
+                    .file-logo{
+                        height: 30px;
+                        display: inline-block;
+                        margin-right: 10px;
+                        img{
+                            height: 100%;
+
+                        }
+                    }
+                    p{
+                        display: inline-block;
+                        color: $grey;
+                        font-size: 1.2em;
+                    }
+                }
+            }
+        }
+        .item-attach {
+            padding-top: 20px;
+            .item-user {
+                .user-avatar {
+                    height: 30px;
+                    img {
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+                p {
+                    font-size: 1.2em;
+                    color: $grey;
+                    display: inline-block;
+                    margin-bottom: 0;
+                    span {
+                        color: $primarybtn;
+                    }
+                }
+            }
+            & > p {
+                text-align: right;
+                color: $grey;
+            }
+            .item-info {
+                margin-top: 10px;
+                ul {
+                    li:not(:first-child) {
+                        border-right: 1px solid $grey;
+                    }
+                    li {
+                        span:first-of-type {
+                            color: $primarybtn;
+                        }
+                        span:last-of-type {
+                            color: $grey;
+                        }
+                        padding: 0 20px;
+                        float: right;
+                    }
+
+                }
+            }
+        }
+    }
+
+}

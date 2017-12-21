@@ -16,6 +16,20 @@ ul {
     list-style-type: none;
 }
 
+@mixin setHoverColor($baseColor) {
+    &:hover {
+        background: lighten($baseColor, 8%);
+    }
+}
+
+@mixin setBtnHoverShadowAndColor($baseColor) {
+    @include setHoverColor($baseColor);
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
+    }
+}
+
 // BFC解决父元素塌陷和margin复用问题
 @mixin cf($className:cf) {
     #{$className}:before,

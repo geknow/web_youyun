@@ -5,33 +5,82 @@
 
 $bodyMarginBottom: 50px;
 
-#square-items-container {
-    width: 100%;
-    margin: 0 auto $bodyMarginBottom;
+$bg: #4F000B;
+$itemBg1: #720026;
+$itemBg2: #CE4257;
+$itemBg3: #FFC093;
+$itemBg4: #FF7F51;
+$counterBg: #222;
 
-    @media screen and (min-width: 640px) {
-        width: 80%;
+.square-items-container {
+    margin-bottom: $bodyMarginBottom;
+    //利用column实现瀑布流
+    column-count: 1;
+    column-gap: 0;
+    @media screen and (min-width: 800px) {
+        column-count: 2;
     }
 
+    @media screen and (min-width: 1200px) {
+        column-count: 3;
+    }
+
+    @media screen and (min-width: 1600px) {
+        column-count: 4;
+    }
     .item {
-        width: 182px;
-        border: 1px solid;
-        background: #09F;
+        break-inside: avoid;
+        padding: 10px;
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            height: 220px;
+            font-size: 40px;
+            color: darken($bg, 5%);
+            background: currentColor;
+            box-sizing: border-box;
+            @include setHoverColor($itemBg1);
+
+            &:after {
+                color: darken($bg, 10%);
+                content: 'ಠ‿ಠ';
+            }
+
+            &--small {
+                @include setHoverColor($itemBg2);
+                color: $itemBg2;
+                height: 100px;
+
+                &:after {
+                    content: '♥◡♥';
+                }
+            }
+
+            &--medium {
+                @include setHoverColor($itemBg3);
+                color: $itemBg3;
+                height: 175px;
+
+                &:after {
+                    content: '◔ᴗ◔';
+                }
+            }
+
+            &--large {
+                @include setHoverColor($itemBg4);
+                height: 280px;
+                color: $itemBg4;
+
+                &:after {
+                    content: 'ಠ_๏';
+                }
+            }
+        }
     }
 
-    .item1 {
-        height: 120px;
-    }
-
-    .item2 {
-        height: 150px;
-    }
-
-    .item3 {
-        height: 240px;
-    }
-
-    .item4 {
-        height: 330px;
-    }
 }
+

@@ -99,11 +99,7 @@ $bodyMarginBottom: 50px;
                     text-align: center;
                     border-radius: 50px;
                     cursor: pointer;
-                    &:hover{
-                        background-color: $primarybtn - 10;
-                        transform: translateY(-1px);
-                        box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
-                    }
+                    @include setBtnHoverShadowAndColor($primarybtn);
                 }
             }
             & > p:last-of-type {
