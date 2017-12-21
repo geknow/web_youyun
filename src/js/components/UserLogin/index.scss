@@ -1,0 +1,152 @@
+@import '../../../scss/common/base';
+@import '../../../scss/common/color';
+
+$bodyMarginBottom: 50px;
+
+.user-login {
+    width: 80%;
+    max-width: 1200px;
+    height: 702px;
+    margin: 0 auto $bodyMarginBottom;
+    background-color: $blockcolor;
+    display: flex;
+
+    aside.user-login-left {
+        @media screen and (max-width: 740px) {
+            display: none;
+        }
+        background: url("../../../icon/wave2.png") center;
+        flex: auto;
+
+        display: flex;
+        flex-direction: column;
+        .left-info {
+            display: flex;
+            flex-direction: column;
+            flex: 3 0;
+            justify-content: center;
+            align-items: center;
+            .logo {
+                width: 144px;
+                img {
+                    width: 100%;
+                }
+            }
+            p {
+                text-align: center;
+                color: white;
+                font-size: 2em;
+            }
+        }
+        nav.left-attach {
+            flex: 1 0;
+            ul {
+                display: flex;
+                justify-content: center;
+                li {
+                    cursor: pointer;
+                    padding: 0 10px;
+                    span {
+                        font-weight: 500;
+                        color: white;
+                    }
+                }
+                li:not(:last-of-type) {
+                    border-right: 1px solid white;
+                }
+            }
+            p {
+                text-align: center;
+                color: white;
+                margin: 20px 0;
+            }
+        }
+    }
+    aside.user-login-right {
+        flex: auto;
+        header {
+            color: $primarybtn;
+            p {
+                font-size: 2em;
+                font-weight: 500;
+                text-align: center;
+            }
+            padding: 70px 0;
+        }
+        section.login-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            & > div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 360px;
+                @media screen and (max-width: 1100px) {
+                    width: 70%;
+                }
+                margin-bottom: 20px;
+            }
+            .input-text input {
+                border-radius: 5px;
+                outline: none;
+                border: none;
+                background-color: $backgroudcolor;
+                height: 45px;
+                text-indent: 0.6em;
+                width: 100%;
+            }
+
+            ::-webkit-input-placeholder {
+                color: $grey;
+            }
+            .remember-p {
+                display: flex;
+                justify-content: space-between;
+                color: $grey;
+                span:last-of-type {
+                    cursor: pointer;
+                }
+            }
+            .btn-submit {
+                border-radius: 50px;
+                background-color: $primarybtn;
+                @include setBtnHoverShadowAndColor($primarybtn);
+                text-align: center;
+                height: 45px;
+                span {
+                    color: white;
+                }
+            }
+            .to-register {
+                margin-top: 20px;
+                p {
+                    color: $lightgrey;
+                    font-size: 0.9em;
+                    span {
+                        color: $primarybtn;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .line {
+                border-bottom: 1px solid $lightgrey;
+            }
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            div {
+                width: calc(88px + 20px * 2);
+                height: calc(88px + 20px * 2);
+                padding: 20px;
+                cursor: pointer;
+                img {
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+}

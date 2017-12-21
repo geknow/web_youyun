@@ -7,6 +7,8 @@ import FileExtractCodeContainer from './FileExtractCode.jsx';
 import FileDownloadContainer from './FileDownload.jsx';
 import SquareNavContainer from './SquareNav.jsx';
 import SquareItemsContainer from './SquareItems.jsx';
+//user
+import UserLoginContainer from './UserLogin.jsx';
 
 export {
     FileHeaderContainer,
@@ -16,5 +18,6 @@ export {
     FileExtractCodeContainer,
     FileDownloadContainer,
     SquareNavContainer,
-    SquareItemsContainer
+    SquareItemsContainer,
+    UserLoginContainer
 };

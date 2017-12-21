@@ -23,7 +23,6 @@ header.main-header {
         border-radius: 200%;
     }
 
-
     position: relative;
     min-width: $headerMinWidth;
     height: $headerHeight;
@@ -101,6 +100,26 @@ header.main-header {
         }
         i:hover {
             cursor: pointer;
+        }
+    }
+    .header-login-component {
+        width: 25%;
+        text-align: center;
+        line-height: 40px;
+        ul {
+            li {
+                position: relative;
+                display: inline-block;
+                margin: 0 5px;
+                cursor: pointer;
+                padding: 0 10px;
+                span {
+                    color: $grey;
+                }
+            }
+            span {
+                color: $grey;
+            }
         }
     }
     .header-info-component {

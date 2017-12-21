@@ -11,6 +11,9 @@ import FileDownloadComponent from './FileDownload/index.jsx';
 import SquareNavComponent from './SquareNav/index.jsx';
 import SquareItemsComponent from './SquareItems/index.jsx';
 
+
+//user
+import UserLoginComponent from './UserLogin/index.jsx';
 export {
     FooterComponent,
     FileHeaderComponent,
@@ -20,5 +23,6 @@ export {
     FileExtractCodeComponent,
     FileDownloadComponent,
     SquareNavComponent,
-    SquareItemsComponent
+    SquareItemsComponent,
+    UserLoginComponent
 };

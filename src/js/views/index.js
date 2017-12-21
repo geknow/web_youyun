@@ -4,6 +4,7 @@ import FilePersonalCenterPage from './FilePersonalCenterPage';
 import FileItemPage from './FileItemPage';
 import FileUploadPage from './FileUploadPage';
 import SqaureFoundPage from './SqaureFound';
+import UserLoginPage from './UserLoginPage';
 
 export {
     FilePersonalCenterPage,
@@ -11,5 +12,6 @@ export {
     FileUploadPage,
     FileDownloadPage,
     FileExtractCodePage,
-    SqaureFoundPage
+    SqaureFoundPage,
+    UserLoginPage
 };

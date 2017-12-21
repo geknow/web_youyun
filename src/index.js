@@ -9,7 +9,8 @@ import {
     FileUploadPage,
     FileDownloadPage,
     FileExtractCodePage,
-    SqaureFoundPage
+    SqaureFoundPage,
+    UserLoginPage
 } from './js/views';
 
 import {createStore, applyMiddleware} from 'redux';
@@ -40,6 +41,8 @@ ReactDOM.render(
                 <Route path="/file/code" component={FileExtractCodePage}/>
 
                 <Route path={'/square/found'} component={SqaureFoundPage}/>
+
+                <Route path={'/user/login'} component={UserLoginPage}/>
             </Switch>
         </BrowserRouter>
     </Provider>,

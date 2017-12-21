@@ -39,7 +39,6 @@ export default connect(
                 let result = await checkUploadFile(body);
                 let code;
                 if (!result.success) {
-                    console.log('---');
                     dispatch({
                         type: 'progress',
                         data: {

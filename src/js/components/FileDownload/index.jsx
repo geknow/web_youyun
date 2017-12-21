@@ -3,7 +3,7 @@ import React from 'react';
 
 import 'font-awesome/scss/font-awesome.scss';
 import {Link} from 'react-router-dom';
-let $ = require('jquery');
+
 
 export default class FileDownloadComponent extends React.Component {
 
@@ -26,8 +26,11 @@ export default class FileDownloadComponent extends React.Component {
             return;
         let that = this;
         let {handleCodeErr} = this.props;
-        $.ajax(`/api/file/checkdownload/${identifyCode}`)
-            .done(function (res) {
+        fetch(`/api/file/checkdownload/${identifyCode}`)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (res) {
                 if (res.success) {
                     let encrypt = res.data;
                     let form = that.refs['form'];
@@ -39,7 +42,7 @@ export default class FileDownloadComponent extends React.Component {
                         iscodeerr: true
                     });
             })
-            .fail(function () {
+            .catch((err) => {
                 handleCodeErr({
                     iscodeerr: true
                 });
