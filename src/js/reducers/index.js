@@ -6,6 +6,7 @@ import FileDownloadReducer from './FileDownload';
 import SquareNavReducer from './SquareNav';
 import SquareItemsReducer from './SquareItems';
 import UserLoginReducer from './UserLogin';
+import FilePersonalCenterReducer from './FilePersonCenter';
 
 export default combineReducers({
     FileHeaderReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
     FileDownloadReducer,
     SquareNavReducer,
     SquareItemsReducer,
-    UserLoginReducer
+    UserLoginReducer,
+    FilePersonalCenterReducer
 });

@@ -3,7 +3,7 @@ import React from 'react';
 import logo from '../../../icon/logo.png';
 import 'font-awesome/scss/font-awesome.scss';
 import {Link} from 'react-router-dom';
-
+import store from '../../../store';
 let Message = ({messageCount}) => {
     return (
         <div id="header-message">
@@ -26,6 +26,9 @@ export default class FileHeaderComponent extends React.Component {
 
     render() {
         let {messageCount, showSetting, showSettingHandle, islogin} = this.props;
+        console.log(store.getState());
+        console.log(this.props);
+        console.log(islogin);
         return (
             <header className="main-header clearfix">
                 <div className="header-component header-logo-component">

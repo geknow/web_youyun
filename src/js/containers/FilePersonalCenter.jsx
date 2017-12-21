@@ -9,7 +9,9 @@ import {FilePersonalCenterComponent} from '../components/index';
 
 export default connect(
     (state) => {
-        return {};
+        return {
+            ...state.FilePersonalCenterReducer
+        };
     },
     (dispatch) => {
         return {};

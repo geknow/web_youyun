@@ -4,6 +4,9 @@ let initStat = {
 };
 
 const FileHeaderReducer = (state = initStat, action) => {
+    let newState = {};
+    Object.assign(newState, state);
+    Object.assign(newState, action.data);
     switch (action.type) {
         case 'showSetting':
             return {
@@ -11,7 +14,7 @@ const FileHeaderReducer = (state = initStat, action) => {
                 showSetting: !state.showSetting
             };
         default:
-            return state;
+            return newState;
     }
 };
 

@@ -7,6 +7,7 @@ import qqLogo from '../../../icon/icon_login_qq.png';
 import wechatLogo from '../../../icon/icon__login_wechat.png';
 import {Link,Redirect} from 'react-router-dom';
 
+
 export default class UserLogin extends React.Component {
     constructor() {
         super();
@@ -35,7 +36,7 @@ export default class UserLogin extends React.Component {
     render() {
         let {islogin} = this.props;
         if (!!islogin) {
-            return <Redirect to={'/file/center'}/>;
+            return <Redirect from={'/user/login'} to={'/file/center'}/>;
         }
         return (
             <div className={'user-login'}>

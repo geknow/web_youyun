@@ -13,21 +13,14 @@ import {
     UserLoginPage
 } from './js/views';
 
-import {createStore, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
-import logger from 'redux-logger';
-import rootReducer from './js/reducers/index';
-
-const store = createStore(
-    rootReducer,
-    applyMiddleware(thunk, logger)
-);
+import store from './store';
 
 
 let App = document.createElement('div');
 document.body.appendChild(App);
 App.style.height = 'inherit';
 App.style.width = 'inherit';
+
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>

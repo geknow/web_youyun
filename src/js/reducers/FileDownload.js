@@ -1,4 +1,5 @@
-const FileDownloadReducer = (state = {}, action) => {
+let initStat = {};
+const FileDownloadReducer = (state = initStat, action) => {
     let newState = {};
     Object.assign(newState, state);
     Object.assign(newState, action.data);
@@ -6,7 +7,7 @@ const FileDownloadReducer = (state = {}, action) => {
         case 'codeerror':
             return newState;
         default:
-            return state;
+            return newState;
     }
 };
 
