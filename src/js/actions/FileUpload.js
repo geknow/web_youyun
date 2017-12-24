@@ -1,18 +1,13 @@
 const CryptoJS = require('crypto-js');
+import axios from 'axios';
+
 const $ = require('jquery');
 
 export async function checkUploadFile(body) {
-    return await new Promise((resolve, reject) => {
-        fetch('/api/file/uploadCheck', {
-            method: 'POST',
-            body: JSON.stringify(body),
-            headers: {'Content-Type': 'application/json'}
-        }).then(function (response) {
-            return response.json();
-        }).then(function (data) {
-            resolve(data);
+    return await axios.post('/api/file/uploadCheck', body)
+        .then((response) => {
+            return response.data;
         });
-    });
 }
 
 export async function uploadFile(file, body, dispatch) {
@@ -48,7 +43,6 @@ export async function uploadFile(file, body, dispatch) {
                 return myXhr; //xhr 对象返回给 jQuery 使用
             },
             success: function (result) {
-                console.log(result);
                 if (!!result['success']) {
                     resolve(result['data']);
                 }

@@ -5,7 +5,7 @@ import 'font-awesome/scss/font-awesome.scss';
 import bigLogo from '../../../icon/logo_bigger.png';
 import qqLogo from '../../../icon/icon_login_qq.png';
 import wechatLogo from '../../../icon/icon__login_wechat.png';
-import {Link,Redirect} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 
 export default class UserLogin extends React.Component {
@@ -33,8 +33,10 @@ export default class UserLogin extends React.Component {
         });
     }
 
+
     render() {
         let {islogin} = this.props;
+
         if (!!islogin) {
             return <Redirect from={'/user/login'} to={'/file/center'}/>;
         }
@@ -73,7 +75,7 @@ export default class UserLogin extends React.Component {
                         </div>
                         <div className={'remember-p'}>
                             <span>
-                                <input type="checkbox"/>
+                                <input type="checkbox" name={'rememberP'}/>
                                 <span>记住密码</span>
                             </span>
                             <span>忘记密码?</span>

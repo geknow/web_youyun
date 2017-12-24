@@ -5,7 +5,8 @@ import 'font-awesome/scss/font-awesome.scss';
 
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
+import ROUTER from '../../../router';
 
 import {getMyMIME} from '../../service/fileHelper';
 
@@ -21,7 +22,7 @@ let FileName = (props) => {
     );
 };
 
-export default  class FileUploadComponent extends React.Component {
+export default class FileUploadComponent extends React.Component {
     constructor(props) {
         super(props);
         this.handleSelectFile = this.handleSelectFile.bind(this);
@@ -79,10 +80,10 @@ export default  class FileUploadComponent extends React.Component {
     }
 
     render() {
-        let {filename, redirect, uploading, progress} = this.props;
+        let {filename, redirect, uploading, progress, islogin} = this.props;
         let percent = !!progress ? `${progress}%` : 0;
         if (!!redirect) {
-            return <Redirect from={'/file/upload'} to={'/file/code'}/>;
+            return <Redirect from={ROUTER.FILEUPLOAD} to={ROUTER.FILECODE}/>;
         }
 
         return (
@@ -90,7 +91,14 @@ export default  class FileUploadComponent extends React.Component {
                 <div>
                     <div className="body-top">
                         <div className="body-name"><span>上传</span></div>
-                        <div className="body-login"><span>你还没登录 点击</span><a href="">登录上传</a></div>
+                        {
+                            !islogin ?
+                                <div className="body-login">
+                                    <span>你还没登录 点击</span>
+                                    <Link to={ROUTER.LOGIN}>登录上传</Link>
+                                </div>
+                                : null
+                        }
                     </div>
                     <form>
                         <div className="body-drag">

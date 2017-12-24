@@ -1,6 +1,6 @@
 let initStat = {
     showSetting: false,
-    messageCount:1
+    messageCount: 1
 };
 
 const FileHeaderReducer = (state = initStat, action) => {
@@ -10,9 +10,13 @@ const FileHeaderReducer = (state = initStat, action) => {
     switch (action.type) {
         case 'showSetting':
             return {
-                ...state,
-                showSetting: !state.showSetting
+                ...newState,
+                showSetting: !newState.showSetting
             };
+        case 'logout':
+            localStorage.removeItem('loginToken');
+            sessionStorage.removeItem('loginToken');
+            return newState;
         default:
             return newState;
     }

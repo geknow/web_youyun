@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.dev.js",
-    "mock": "dora.cmd --plugins proxy"
+    "mock": "dora --plugins proxy"
   },
   "author": "",
   "license": "ISC",
@@ -41,6 +41,7 @@
     "webpack-dev-server": "^2.9.4"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-runtime": "^6.26.0",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",

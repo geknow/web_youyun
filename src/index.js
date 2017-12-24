@@ -12,34 +12,51 @@ import {
     SqaureFoundPage,
     UserLoginPage
 } from './js/views';
-
+import ROUTER from './router';
 import store from './store';
 
+import {autoLogin} from './js/actions/UserLogin';
 
-let App = document.createElement('div');
-document.body.appendChild(App);
-App.style.height = 'inherit';
-App.style.width = 'inherit';
+(async () => {
+    //记住密码
+    if (!!localStorage.getItem('loginToken')) {
+        let result = await autoLogin();
+        let result_data = {};
+        result_data['islogin'] = !!result.success;
+        if (result.success)
+            result_data['user'] = result.data;
+        store.dispatch({
+            type: 'login',
+            data: result_data
+        });
+    }
 
-ReactDOM.render(
-    <Provider store={store}>
-        <HashRouter>
-            <Switch>
-                {/*目前url只是为了方便测试*/}
-                {/* 添加对应的router */}
-                <Route exact path="/" component={FileDownloadPage}/>
-                <Route exact path="/file/center" component={FilePersonalCenterPage}/>
-                <Route exact path="/file/upload" component={FileUploadPage}/>
-                <Route path="/file/item" component={FileItemPage}/>
-                <Route path="/file/code" component={FileExtractCodePage}/>
+    let App = document.createElement('div');
+    document.body.appendChild(App);
+    App.style.height = 'inherit';
+    App.style.width = 'inherit';
 
-                <Route path={'/square/found'} component={SqaureFoundPage}/>
+    ReactDOM.render(
+        <Provider store={store}>
+            <HashRouter>
+                <Switch>
+                    {/*目前url只是为了方便测试*/}
+                    {/* 添加对应的router */}
+                    <Route exact path="/" component={FileDownloadPage}/>
+                    <Route exact path={ROUTER.FILECENTER} component={FilePersonalCenterPage}/>
+                    <Route exact path={ROUTER.FILEUPLOAD} component={FileUploadPage}/>
+                    <Route path={ROUTER.FILEITEM} component={FileItemPage}/>
+                    <Route path={ROUTER.FILECODE} component={FileExtractCodePage}/>
 
-                <Route path={'/user/login'} component={UserLoginPage}/>
-            </Switch>
-        </HashRouter>
-    </Provider>,
-    App
-);
+                    <Route path={ROUTER.SQUAREFOUND} component={SqaureFoundPage}/>
+
+                    <Route path={ROUTER.LOGIN} component={UserLoginPage}/>
+                </Switch>
+            </HashRouter>
+        </Provider>,
+        App
+    );
+})();
+
 
 

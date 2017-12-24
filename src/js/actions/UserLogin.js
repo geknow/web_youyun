@@ -1,13 +1,17 @@
+import axios from 'axios';
+
 export async function login(data) {
-    return await new Promise((resolve, reject) => {
-        fetch('/api/login', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {'Content-Type': 'application/json'}
-        }).then(function (response) {
-            return response.json();
-        }).then(function (data) {
-            resolve(data);
+    return await axios.post('/api/login', data)
+        .then(function (response) {
+            return response.data;
         });
-    });
+}
+
+export async function autoLogin() {
+    return await axios.post('/api/updateToken', {
+        'token': localStorage.getItem('loginToken')
+    })
+        .then(function (response) {
+            return response.data;
+        });
 }

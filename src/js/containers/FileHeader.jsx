@@ -12,7 +12,16 @@ export default connect(
         return {
             showSettingHandle: () => {
                 dispatch({
-                    type: 'showSetting'
+                    type: 'showSetting',
+                    data: {}
+                });
+            },
+            logout: () => {
+                dispatch({
+                    type: 'logout',
+                    data: {
+                        islogin: false
+                    }
                 });
             }
         };

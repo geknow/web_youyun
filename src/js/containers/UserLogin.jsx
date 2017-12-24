@@ -5,7 +5,7 @@
 import {connect} from 'react-redux';
 import React from 'react';
 import {UserLoginComponent} from '../components/index';
-import {login} from '../actions/UserLogin';
+import {login, autoLogin} from '../actions/UserLogin';
 
 
 export default connect(

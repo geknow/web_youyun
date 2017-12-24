@@ -2,8 +2,10 @@ import './index.scss';
 import React from 'react';
 import logo from '../../../icon/logo.png';
 import 'font-awesome/scss/font-awesome.scss';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
+import ROUTER from '../../../router';
 import store from '../../../store';
+
 let Message = ({messageCount}) => {
     return (
         <div id="header-message">
@@ -12,20 +14,25 @@ let Message = ({messageCount}) => {
     );
 };
 
-let Setting = () => <div id="header-setting">
-    <span><em/></span>
-    <ul>
-        <li><a href="">账号设置</a></li>
-        <li><a href="">隐私设置</a></li>
-        <li><a href="">关于U云</a></li>
-        <li><a href="">退出</a></li>
-    </ul>
-</div>;
+let Setting = ({logout}) => {
+    return (
+        <div id="header-setting">
+            <span><em/></span>
+            <ul>
+                <li><a href="">账号设置</a></li>
+                <li><a href="">隐私设置</a></li>
+                <li><a href="">关于U云</a></li>
+                <li><Link onClick={logout} to={ROUTER.LOGIN}>退出</Link></li>
+            </ul>
+        </div>
+    );
+};
 
 export default class FileHeaderComponent extends React.Component {
 
     render() {
-        let {messageCount, showSetting, showSettingHandle, islogin} = this.props;
+        let {messageCount, showSetting, showSettingHandle, islogin, logout}
+            = this.props;
         console.log(store.getState());
         console.log(this.props);
         console.log(islogin);
@@ -61,16 +68,16 @@ export default class FileHeaderComponent extends React.Component {
                                 </li>
                                 <li className="setting" onClick={showSettingHandle}>
                                     <a><i className="icon fa fa-cog"/></a>
-                                    {showSetting ? <Setting/> : null}
+                                    {showSetting ? <Setting logout={logout}/> : null}
                                 </li>
                             </ul>
                         </div>
                         :
                         <div className={'header-component header-login-component'}>
                             <ul>
-                                <li><span>登录</span></li>
+                                <li><Link to={ROUTER.LOGIN}><span>登录</span></Link></li>
                                 <span>&nbsp;|&nbsp;</span>
-                                <li><span>注册</span></li>
+                                <li><Link to={ROUTER.REGISTER}><span>注册</span></Link></li>
                             </ul>
                         </div>
                 }

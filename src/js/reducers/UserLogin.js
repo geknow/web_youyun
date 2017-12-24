@@ -7,6 +7,10 @@ const SquareNavReducer = (state = initStat, action) => {
     Object.assign(newState, action.data);
     switch (action.type) {
         case 'login':
+            sessionStorage.setItem('loginToken', action.data.user.loginToken);
+            if (action.data.islogin && state['rememberP']) {
+                localStorage.setItem('loginToken', action.data.user.loginToken);
+            }
             return newState;
         case 'changeValue':
             return newState;
