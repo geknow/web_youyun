@@ -1,28 +1,32 @@
 module.exports = {
 
     'POST /login': function (req, res) {
-        setTimeout(() => {
+        let body = req.body;
+        console.log(body);
+        if (body.phone === '111' && body.password === '123')
+            setTimeout(() => {
+                res.json({
+                    'data': {
+                        'username': 'username0',
+                        'email': 'email0',
+                        'sex': 0,
+                        'phone': '111',
+                        'avatar': 'http://q.qlogo.cn/qqapp/1105716704/9F0208D3381DA5DCBAD56380900972B2/100',
+                        'score': 10,
+                        'loginToken': '6230f89f-a83b-4185-8c01-b06fbf0cbdf3',
+                        'followers': 0,
+                        'followeds': 0,
+                        'id': 1000,
+                        'createTime': 1513409577025,
+                        'updateTime': 1513915951817
+                    },
+                    'success': true
+                });
+            }, 500);
+        else
             res.json({
-                success: true,
-                data: {
-                    username: 'username1',
-                    password: '123',
-                    email: '',
-                    //男是0,女是1
-                    sex: 0,
-                    phone: '18940874730',
-                    avatar: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2983011205,1072109279&fm=27&gp=0.jpg',
-                    signature: '',
-                    //文件下载积分
-                    score: 0,
-                    loginToken: '=======',
-                    followers: 1,
-                    followeds: 2,
-                },
-                msg: '',
-                code: 0
+                'success': false
             });
-        }, 500);
     },
 
     'GET /users': function (req, res) {

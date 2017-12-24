@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {HashRouter, Route, Switch} from 'react-router-dom';
 import React from 'react';
 
 import {
@@ -23,7 +23,7 @@ App.style.width = 'inherit';
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
+        <HashRouter>
             <Switch>
                 {/*目前url只是为了方便测试*/}
                 {/* 添加对应的router */}
@@ -37,7 +37,7 @@ ReactDOM.render(
 
                 <Route path={'/user/login'} component={UserLoginPage}/>
             </Switch>
-        </BrowserRouter>
+        </HashRouter>
     </Provider>,
     App
 );
