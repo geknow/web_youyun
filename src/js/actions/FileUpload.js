@@ -1,10 +1,11 @@
 const CryptoJS = require('crypto-js');
 import axios from 'axios';
+import ROUTE from './backendUrl';
 
 const $ = require('jquery');
 
 export async function checkUploadFile(body) {
-    return await axios.post('/api/file/uploadCheck', body)
+    return await axios.post(ROUTE.uploadCheck, body)
         .then((response) => {
             return response.data;
         });
@@ -32,7 +33,7 @@ export async function uploadFile(file, body, dispatch) {
         };
         //ajax 异步上传
         $.ajax({
-            url: '/api/file/upload',
+            url: ROUTE.upload,
             type: 'POST',
             data: formData,
             xhr: function () { // 获取 ajaxSettings 中的 xhr 对象，为它的 upload 属性绑定 progress 事件的处理函数
