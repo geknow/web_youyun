@@ -3,6 +3,7 @@ import React from 'react';
 
 import 'font-awesome/scss/font-awesome.scss';
 import {Link} from 'react-router-dom';
+import backendUrl from '../../actions/backendUrl';
 
 
 export default class FileDownloadComponent extends React.Component {
@@ -34,7 +35,7 @@ export default class FileDownloadComponent extends React.Component {
                 if (res.success) {
                     let encrypt = res.data;
                     let form = that.refs['form'];
-                    form.action = `/api/file/download/${encrypt }`;
+                    form.action = `${backendUrl.baseUrl}/file/download/${encrypt}`;
                     form.submit();
                 }
                 else

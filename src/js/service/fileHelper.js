@@ -1,4 +1,3 @@
-
 const MIME_APPLICATION = 'apk';
 const MIME_ZIP = 'zip';
 const MIME_VIDEO = 'video';
@@ -38,4 +37,18 @@ let getMyMIME = (type) => {
     }
 
 };
-export {getMyMIME};
+
+let getDownloadLink = (identifycode) => {
+    return `http://eupan.club:8080/file/checkdownload/${identifycode}`;
+};
+export {
+    getMyMIME,
+    MIME_APPLICATION,
+    MIME_MUSIC,
+    MIME_ZIP,
+    MIME_VIDEO,
+    MIME_PICTURE,
+    MIME_DOCUMENT,
+    MIME_OTHER,
+    getDownloadLink
+};

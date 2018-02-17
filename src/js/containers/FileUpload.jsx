@@ -53,13 +53,12 @@ export default connect(
                 setTimeout(() => {
                     dispatch({
                         type: 'redirect',
-                        data: {
-                            extractCode: code,
-                            filename: data.file.name,
+                        data: Object.assign({
+                            identifyCode: code,
+                            name: data.file.name,
                             redirect: true,
-                            time: new Date(),
-                            description: body.description
-                        }
+                            createTime: new Date(),
+                        }, body)
                     });
                 }, 1000);
             }

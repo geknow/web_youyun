@@ -8,10 +8,9 @@ const SquareNavReducer = (state = initStat, action) => {
     Object.assign(newState, state);
     Object.assign(newState, action.data);
     switch (action.type) {
-
         default:
             return newState;
     }
 };
 
-export default SquareNavReducer ;
+export default SquareNavReducer;

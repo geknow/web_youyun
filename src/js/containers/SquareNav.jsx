@@ -9,10 +9,14 @@ import {SquareNavComponent} from '../components/index';
 
 export default connect(
     (state) => {
-        return {};
+        return {
+            ...state.SquareNavReducer
+        };
     },
     (dispatch) => {
-        return {};
+        return {
+
+        };
     }
 )(SquareNavComponent);
 

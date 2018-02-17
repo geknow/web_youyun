@@ -5,7 +5,7 @@ import {FileHeaderContainer,SquareNavContainer,SquareItemsContainer} from '../co
 import '../../scss/FileIndex.scss';
 
 
-export default class FileUploadPage extends React.Component {
+export default class SqaureFound extends React.Component {
     render() {
         return (
             <div className="youyun-container">

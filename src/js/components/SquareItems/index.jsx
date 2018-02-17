@@ -7,99 +7,29 @@ import 'font-awesome/scss/font-awesome.scss';
 import {Link} from 'react-router-dom';
 import {findDOMNode} from 'react-dom';
 import SquareItem from './SquareItem/index.jsx';
+import {forumFiles} from '../../actions/ShareForum';
 
 export default class SquareItems extends React.Component {
 
 
+    async componentWillMount() {
+        console.log(this.props);
+        let res = await forumFiles(this.props);
+        let {loadingFinish} = this.props;
+        loadingFinish(res);
+    }
+
     render() {
-        return (
+        let {loading, data, showFile} = this.props;
+        let listItems;
+        if (!!data) {
+            listItems = data.map((item) =>
+                <SquareItem data={item} key={item.id} showFile={showFile}/>
+            );
+        }
+        return loading ? null : (
             <div className="square-items-container">
-                <SquareItem/>
-                <div className="item">
-                    <div className="item__content">
-                    </div>
-                </div>
-                <div className="item">
-                    <div className="item__content item__content--small">
-                    </div>
-                </div>
-                <SquareItem/>
-                <SquareItem/>
-                <div className="item">
-                    <div className="item__content item__content--medium">
-                    </div>
-                </div>
-                <div className="item">
-                    <div className="item__content item__content--small">
-                    </div>
-                </div>
-                <div className="item">
-                    <div className="item__content item__content--medium">
-                    </div>
-                </div>
-                <SquareItem/>
-                <div className="item">
-                    <div className="item__content">
-                    </div>
-                </div>
-                <div className="item">
-                    <div className="item__content item__content--large">
-                    </div>
-                </div>
-                <SquareItem/>
-                <SquareItem/>
-                <div className="item">
-                    <div className="item__content item__content--medium">
-                    </div>
-                </div>
-                <div className="item">
-                    <div className="item__content item__content--small">
-                    </div>
-                </div>
-                <div className="item">
-                    <div className="item__content">
-                    </div>
-                </div>
-                <SquareItem/>
-                <div className="item">
-                    <div className="item__content item__content--large">
-                    </div>
-                </div>
-                <div className="item">
-                    <div className="item__content">
-                    </div>
-                </div>
-                <div className="item">
-                    <div className="item__content item__content--small">
-                    </div>
-                </div>
-                <div className="item">
-                    <div className="item__content item__content--large">
-                    </div>
-                </div>
-                <div className="item">
-                    <div className="item__content item__content--medium">
-                    </div>
-                </div>
-                <SquareItem/>
-                <div className="item">
-                    <div className="item__content item__content--small">
-                    </div>
-                </div>
-                <div className="item">
-                    <div className="item__content item__content--medium">
-                    </div>
-                </div>
-                <div className="item">
-                    <div className="item__content">
-                    </div>
-                </div>
-                <SquareItem/>
-                <div className="item">
-                    <div className="item__content item__content--small">
-                    </div>
-                </div>
-                <SquareItem/>
+                {!!listItems && listItems}
             </div>
         );
     }

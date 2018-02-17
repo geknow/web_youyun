@@ -15,7 +15,18 @@ export default connect(
     },
     (dispatch) => {
         return {
-
+            loadingFinish: (data) => {
+                dispatch({
+                    type: 'loadingFinish',
+                    data
+                });
+            },
+            showFile: (data) => {
+                dispatch({
+                    type: 'showFile',
+                    data
+                });
+            }
         };
     }
 )(SquareItemsComponent);

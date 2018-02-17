@@ -31,11 +31,7 @@ let Setting = ({logout}) => {
 export default class FileHeaderComponent extends React.Component {
 
     render() {
-        let {messageCount, showSetting, showSettingHandle, islogin, logout}
-            = this.props;
-        console.log(store.getState());
-        console.log(this.props);
-        console.log(islogin);
+        let {messageCount, showSetting, showSettingHandle, islogin, logout, user} = this.props;
         return (
             <header className="main-header clearfix">
                 <div className="header-component header-logo-component">
@@ -45,9 +41,9 @@ export default class FileHeaderComponent extends React.Component {
                 <div className="header-component header-nav-component">
                     <ul>
                         <li><a href="">首页</a></li>
-                        <li><a href="">发现广场</a></li>
-                        <li><Link to={'/file/upload'}>我要上传</Link></li>
-                        <li><Link to={'/file/center'}>我的文件</Link></li>
+                        <li><Link to={ROUTER.SQUAREFOUND}>发现广场</Link></li>
+                        <li><Link to={ROUTER.FILEUPLOAD}>我要上传</Link></li>
+                        <li><Link to={ROUTER.FILECENTER}>我的文件</Link></li>
                     </ul>
                 </div>
                 <div className="header-component header-search-component">
@@ -60,7 +56,8 @@ export default class FileHeaderComponent extends React.Component {
                     islogin ?
                         <div className="header-component header-info-component">
                             <ul className="header-info-ul">
-                                <li><a href=""><i className="icon fa fa-user-o"/>&nbsp;<span>日朋</span></a></li>
+                                <li><a href=""><i className="icon fa fa-user-o"/>&nbsp;<span>{user.username}</span></a>
+                                </li>
                                 <span>&nbsp;|&nbsp;</span>
                                 <li className="message">
                                     <a><i className="icon fa fa-commenting-o"/></a>
