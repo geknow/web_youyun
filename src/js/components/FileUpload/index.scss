@@ -6,7 +6,7 @@ $bodyMarginBottom: 50px;
 .upload-body {
     width: $bodyWidth;
     background-color: $blockcolor;
-    margin: 0 auto $bodyMarginBottom;
+    margin: $bodyMarginBottom auto;
     div {
         width: 570px;
         margin: 0 auto;
