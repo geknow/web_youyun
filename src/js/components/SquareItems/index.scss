@@ -13,74 +13,75 @@ $itemBg4: #FF7F51;
 $counterBg: #222;
 
 .square-items-container {
-    margin-bottom: $bodyMarginBottom;
-    //利用column实现瀑布流
-    column-count: 1;
-    column-gap: 0;
-    @media screen and (min-width: 800px) {
-        column-count: 2;
-    }
+  margin-bottom: $bodyMarginBottom;
+  margin-left: 10%;
+  margin-right: 10%;
+  //利用column实现瀑布流
+  column-count: 1;
+  column-gap: -50px;
+  @media screen and (min-width: 800px) {
+    column-count: 2;
+  }
 
-    @media screen and (min-width: 1200px) {
-        column-count: 3;
-    }
+  @media screen and (min-width: 1200px) {
+    column-count: 3;
+  }
 
-    @media screen and (min-width: 1600px) {
-        column-count: 4;
-    }
-    .item {
-        break-inside: avoid;
-        padding: 10px;
+  @media screen and (min-width: 1600px) {
+    column-count: 3;
+  }
+  .item {
+    break-inside: avoid;
 
-        &__content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-            height: 220px;
-            font-size: 40px;
-            color: darken($bg, 5%);
-            background: currentColor;
-            box-sizing: border-box;
-            @include setHoverColor($itemBg1);
+      height: 220px;
+      font-size: 40px;
+      color: darken($bg, 5%);
+      background: currentColor;
+      box-sizing: border-box;
+      @include setHoverColor($itemBg1);
 
-            &:after {
-                color: darken($bg, 10%);
-                content: 'ಠ‿ಠ';
-            }
+      &:after {
+        color: darken($bg, 10%);
+        content: 'ಠ‿ಠ';
+      }
 
-            &--small {
-                @include setHoverColor($itemBg2);
-                color: $itemBg2;
-                height: 100px;
+      &--small {
+        @include setHoverColor($itemBg2);
+        color: $itemBg2;
+        height: 100px;
 
-                &:after {
-                    content: '♥◡♥';
-                }
-            }
-
-            &--medium {
-                @include setHoverColor($itemBg3);
-                color: $itemBg3;
-                height: 175px;
-
-                &:after {
-                    content: '◔ᴗ◔';
-                }
-            }
-
-            &--large {
-                @include setHoverColor($itemBg4);
-                height: 280px;
-                color: $itemBg4;
-
-                &:after {
-                    content: 'ಠ_๏';
-                }
-            }
+        &:after {
+          content: '♥◡♥';
         }
+      }
+
+      &--medium {
+        @include setHoverColor($itemBg3);
+        color: $itemBg3;
+        height: 175px;
+
+        &:after {
+          content: '◔ᴗ◔';
+        }
+      }
+
+      &--large {
+        @include setHoverColor($itemBg4);
+        height: 280px;
+        color: $itemBg4;
+
+        &:after {
+          content: 'ಠ_๏';
+        }
+      }
     }
+  }
 
 }
 

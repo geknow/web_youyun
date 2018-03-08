@@ -32,6 +32,7 @@ import {autoLogin} from './js/actions/UserLogin';
     }
 
     let App = document.createElement('div');
+
     document.body.appendChild(App);
     App.style.height = 'inherit';
     App.style.width = 'inherit';

@@ -6,8 +6,8 @@
     //必须
     break-inside: avoid;
 
+    z-index: 0;
     padding: 10px;
-
     //display: flex;
     //flex-direction: column;
     //justify-content: space-around;
@@ -107,5 +107,17 @@
             }
         }
     }
+    .item:hover{
+        box-shadow: 0 0 10px $grey;
+    }
 
+}
+
+.square-item:hover{
+    transform:scale(1.03);
+    -ms-transform:scale(1.03); 	/* IE 9 */
+    -moz-transform:scale(1.03); 	/* Firefox */
+    -webkit-transform:scale(1.03); /* Safari 和 Chrome */
+    -o-transform:scale(1.03); 	/* Opera */
+    z-index: 100;
 }

@@ -28,7 +28,7 @@ export default class FooterComponent extends React.Component {
                 </div>
 
                 <div className="footer-component-second">
-                    <p>&copy;2017大连理工大学开发区校区 OurEDA实验室 ALL RIGHT RESERVED</p>
+                    <p>&copy;2018大连理工大学开发区校区 OurEDA实验室 ALL RIGHT RESERVED</p>
                 </div>
             </footer>
         );

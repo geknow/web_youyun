@@ -11,5 +11,6 @@ html, body {
   position: relative;
   min-height: 100%;
   box-sizing: border-box;
-  padding-bottom: $footerHeight;
+  background-color: $backgroudcolor;
+  //padding-bottom: $footerHeight;
 }
