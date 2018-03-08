@@ -5,6 +5,7 @@ import 'font-awesome/scss/font-awesome.scss';
 import {Link, Redirect} from 'react-router-dom';
 import ROUTER from '../../../router';
 import store from '../../../store';
+import NavLink from 'react-router-dom/es/NavLink';
 
 let Message = ({messageCount}) => {
     return (
@@ -40,10 +41,14 @@ export default class FileHeaderComponent extends React.Component {
                 </div>
                 <div className="header-component header-nav-component">
                     <ul>
-                        <li><a href="">首页</a></li>
-                        <li><Link to={ROUTER.SQUAREFOUND}>发现广场</Link></li>
-                        <li><Link to={ROUTER.FILEUPLOAD}>我要上传</Link></li>
-                        <li><Link to={ROUTER.FILECENTER}>我的文件</Link></li>
+                        <li><NavLink to="/" activeClassName='header-nav-title-selected' isActive={
+                            (match, location) => {
+                                return match.path === location.pathname;
+                            }
+                        }>首页</NavLink></li>
+                        <li><NavLink to={ROUTER.SQUAREFOUND} activeClassName='header-nav-title-selected'>发现广场</NavLink></li>
+                        <li><NavLink to={ROUTER.FILEUPLOAD} activeClassName='header-nav-title-selected'>我要上传</NavLink></li>
+                        <li><NavLink to={ROUTER.FILECENTER} activeClassName='header-nav-title-selected'>我的文件</NavLink></li>
                     </ul>
                 </div>
                 <div className="header-component header-search-component">

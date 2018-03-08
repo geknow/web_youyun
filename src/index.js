@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {HashRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import React from 'react';
 
 import {
@@ -38,7 +38,7 @@ import {autoLogin} from './js/actions/UserLogin';
 
     ReactDOM.render(
         <Provider store={store}>
-            <HashRouter>
+            <BrowserRouter>
                 <Switch>
                     {/*目前url只是为了方便测试*/}
                     {/* 添加对应的router */}
@@ -52,7 +52,7 @@ import {autoLogin} from './js/actions/UserLogin';
 
                     <Route path={ROUTER.LOGIN} component={UserLoginPage}/>
                 </Switch>
-            </HashRouter>
+            </BrowserRouter>
         </Provider>,
         App
     );

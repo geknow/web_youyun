@@ -6,210 +6,215 @@ $navcolor: #474545;
 $headerMaginBottom: 50px;
 $headerMinWidth: 900px;
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 @include cf('.clearfix');
 header.main-header {
-    //底部阴影
-    &::before {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        bottom: 15px;
-        width: 100%;
-        height: 10px;
-        box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.7);
-        border-radius: 200%;
-    }
+  //底部阴影
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 15px;
+    width: 100%;
+    height: 10px;
+    box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.7);
+    border-radius: 200%;
+  }
 
-    position: relative;
-    min-width: $headerMinWidth;
-    height: $headerHeight;
-    background-color: $blockcolor;
-    margin-bottom: $headerMaginBottom;
-    .header-component {
+  position: relative;
+  min-width: $headerMinWidth;
+  height: $headerHeight;
+  background-color: $blockcolor;
+  margin-bottom: $headerMaginBottom;
+  .header-component {
+    display: inline-block;
+  }
+  .header-logo-component {
+    width: 25%;
+    text-align: center;
+    .logo-component {
+      height: $headerHeight;
+      margin-top: 5px;
+      display: inline-block;
+      vertical-align: middle;
+      padding-right: 5px;
+      img {
+        // 自动适应div大小
+        max-height: 100%;
+        width: auto;
+      }
+    }
+    .logo-name {
+      border-left: solid 1px $grey;
+      display: inline-block;
+      padding: 5px 1em;
+      font-size: 1em;
+    }
+  }
+  .header-nav-component {
+    width: 25%;
+    text-align: center;
+    ul {
+      li {
         display: inline-block;
-    }
-    .header-logo-component {
-        width: 25%;
-        text-align: center;
-        .logo-component {
-            height: $headerHeight;
-            margin-top: 5px;
-            display: inline-block;
-            vertical-align: middle;
-            padding-right: 5px;
-            img {
-                // 自动适应div大小
-                max-height: 100%;
-                width: auto;
-            }
+        margin-left: .7em;
+        a {
+          font-size: 0.75em;
+          color: $navcolor;
         }
-        .logo-name {
-            border-left: solid 1px $grey;
-            display: inline-block;
-            padding: 5px 1em;
-            font-size: 1em;
+        a:hover {
+          color: $darkBlue;
         }
+      }
     }
-    .header-nav-component {
-        width: 25%;
-        text-align: center;
-        ul {
+  }
 
-            li {
-                display: inline-block;
-                margin-left: .7em;
-                a {
-                    font-size: 0.75em;
-                    color: $navcolor;
-                }
-                a:hover {
-                    color: $darkBlue;
-                }
-            }
-        }
+  .header-nav-title-selected {
+    color: $darkBlue !important;
+  }
+
+
+  .header-search-component {
+    width: 25%;
+    text-align: left;
+    position: relative;
+    color: $grey;
+    input {
+      border-radius: 50px;
+      outline: none;
+      border: none;
+      background-color: $backgroudcolor;
+      height: 25px;
+      text-indent: 0.6em;
+      font-size: 0.75em;
+      width: 75%;
+
+      padding-right: 22px;
     }
-    .header-search-component {
-        width: 25%;
-        text-align: left;
+    input:focus {
+      border: 1px solid $lightBlue;
+    }
+    ::-webkit-input-placeholder {
+      color: $grey;
+    }
+    i {
+      position: relative;
+      left: -22px;
+    }
+    i:hover {
+      cursor: pointer;
+    }
+  }
+  .header-login-component {
+    width: 25%;
+    text-align: center;
+    line-height: 40px;
+    ul {
+      li {
         position: relative;
+        display: inline-block;
+        margin: 0 5px;
+        cursor: pointer;
+        padding: 0 10px;
+        span {
+          color: $grey;
+        }
+      }
+      span {
         color: $grey;
-        input {
-            border-radius: 50px;
-            outline: none;
-            border: none;
-            background-color: $backgroudcolor;
-            height: 25px;
-            text-indent: 0.6em;
-            font-size: 0.75em;
-            width: 75%;
+      }
+    }
+  }
+  .header-info-component {
+    width: 25%;
+    text-align: center;
+    line-height: 40px;
 
-            padding-right: 22px;
+    ul.header-info-ul {
+      span {
+        color: $grey;
+      }
+      a {
+        color: $grey;
+        span {
+          font-size: 0.75em;
         }
-        input:focus {
-            border: 1px solid $lightBlue;
-        }
-        ::-webkit-input-placeholder {
-            color: $grey;
-        }
-        i {
+      }
+
+      & > li {
+        position: relative;
+        display: inline-block;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+      & > li:last-of-type {
+        margin-right: 50px;
+      }
+      .message {
+        #header-message {
+          width: 20px;
+          height: 15px;
+          position: absolute;
+          top: 3px;
+          right: -10px;
+          background-color: $red;
+          border-radius: 10px;
+          color: white;
+          span {
             position: relative;
-            left: -22px;
+            top: -12px;
+            color: white;
+            font-size: 10px;
+          }
         }
-        i:hover {
-            cursor: pointer;
-        }
-    }
-    .header-login-component {
-        width: 25%;
-        text-align: center;
-        line-height: 40px;
-        ul {
+      }
+      .setting {
+        #header-setting {
+          position: relative;
+          span {
+            display: block;
+            width: 0;
+            height: 0;
+            border-width: 0 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent $lightgrey;
+            position: absolute;
+            top: -10px;
+            right: 0;
+            em {
+              display: block;
+              width: 0;
+              height: 0;
+              border-width: 0 10px 10px;
+              border-style: solid;
+              border-color: transparent transparent $blockcolor;
+              position: absolute;
+              top: 1px;
+              left: -10px;
+              z-index: 200;
+            }
+          }
+          ul {
+            z-index: 100;
+            position: absolute;
+            right: -40px;
+            border: 1px solid $lightgrey;
+            background-color: $blockcolor;
+            width: 120px;
+            border-radius: 4px;
             li {
-                position: relative;
-                display: inline-block;
-                margin: 0 5px;
-                cursor: pointer;
-                padding: 0 10px;
-                span {
-                    color: $grey;
-                }
+              text-align: center;
+              cursor: pointer;
             }
-            span {
-                color: $grey;
+            li:hover {
+              background-color: $lightgrey;
             }
+          }
         }
+      }
+
     }
-    .header-info-component {
-        width: 25%;
-        text-align: center;
-        line-height: 40px;
-
-        ul.header-info-ul {
-            span {
-                color: $grey;
-            }
-            a {
-                color: $grey;
-                span {
-                    font-size: 0.75em;
-                }
-            }
-
-            & > li {
-                position: relative;
-                display: inline-block;
-                margin: 0 5px;
-                cursor: pointer;
-            }
-            & > li:last-of-type {
-                margin-right: 50px;
-            }
-            .message {
-                #header-message {
-                    width: 20px;
-                    height: 15px;
-                    position: absolute;
-                    top: 3px;
-                    right: -10px;
-                    background-color: $red;
-                    border-radius: 10px;
-                    color: white;
-                    span {
-                        position: relative;
-                        top: -12px;
-                        color: white;
-                        font-size: 10px;
-                    }
-                }
-            }
-            .setting {
-                #header-setting {
-                    position: relative;
-                    span {
-                        display: block;
-                        width: 0;
-                        height: 0;
-                        border-width: 0 10px 10px;
-                        border-style: solid;
-                        border-color: transparent transparent $lightgrey;
-                        position: absolute;
-                        top: -10px;
-                        right: 0;
-                        em {
-                            display: block;
-                            width: 0;
-                            height: 0;
-                            border-width: 0 10px 10px;
-                            border-style: solid;
-                            border-color: transparent transparent $blockcolor;
-                            position: absolute;
-                            top: 1px;
-                            left: -10px;
-                            z-index: 200;
-                        }
-                    }
-                    ul {
-                        z-index: 100;
-                        position: absolute;
-                        right: -40px;
-                        border: 1px solid $lightgrey;
-                        background-color: $blockcolor;
-                        width: 120px;
-                        border-radius: 4px;
-                        li {
-                            text-align: center;
-                            cursor: pointer;
-                        }
-                        li:hover {
-                            background-color: $lightgrey;
-                        }
-                    }
-                }
-            }
-
-        }
-    }
+  }
 }
