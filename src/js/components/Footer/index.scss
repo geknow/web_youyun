@@ -19,8 +19,9 @@ footer.footer-component {
         height: $footerHeight - $footerSecondHeight;
         .footer-left {
             display: inline-block;
-            width: 50%;
-            text-align: center;
+            width: 35%;
+            margin-left: 15%;
+            text-align: left;
             vertical-align: middle;
             div {
                 margin: 10px 0;
