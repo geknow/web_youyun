@@ -19,12 +19,12 @@ $counterBg: #222;
   //利用column实现瀑布流
   column-count: 1;
   column-gap: -50px;
-  @media screen and (min-width: 800px) {
-    column-count: 2;
+  @media screen and (min-width: 600px) {
+    column-count: 1;
   }
 
-  @media screen and (min-width: 1200px) {
-    column-count: 3;
+  @media screen and (min-width: 1000px) {
+    column-count: 2;
   }
 
   @media screen and (min-width: 1600px) {
