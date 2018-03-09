@@ -9,6 +9,8 @@ $footerMinWidth: 900px;
 footer.footer-component {
     //position: absolute;
     //bottom: 0;
+    position: absolute;
+    z-index: 9;
     width: 100%;
     min-width: $footerMinWidth;
     height: $footerHeight;
