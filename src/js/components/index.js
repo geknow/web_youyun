@@ -1,6 +1,7 @@
 // common
 import FooterComponent from './Footer/index.jsx';
 
+import BaseReactBgComponent from './base/BaseReactBgComponent';
 // file
 import FileHeaderComponent from './FileHeader/index.jsx';
 import FilePersonalCenterComponent from './FilePersonalCenter/index.jsx';
@@ -24,5 +25,6 @@ export {
     FileDownloadComponent,
     SquareNavComponent,
     SquareItemsComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    BaseReactBgComponent
 };

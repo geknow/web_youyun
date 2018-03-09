@@ -15,6 +15,7 @@ function fillBg(canvasId, bodyId) {
         ctx.fillStyle = '#61a3e8';
         ctx.beginPath();
         ctx.moveTo(cWidth, 0);
+        ctx.lineTo(cWidth, cHeight);
         ctx.lineTo(0, cHeight);
         ctx.lineTo(cWidth, cHeight + cWidth);
         ctx.lineTo(cWidth + cWidth, cWidth);
