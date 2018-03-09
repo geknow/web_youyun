@@ -9,7 +9,7 @@ import BaseReactBgComponent from '../base/BaseReactBgComponent';
 export default class FileDownloadComponent extends BaseReactBgComponent {
 
     constructor(props) {
-        super('myCanvas', 'downloadBody', props);
+        super('myCanvas', 'downloadBody', props, 20);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }

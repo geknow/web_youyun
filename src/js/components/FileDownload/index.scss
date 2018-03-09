@@ -11,8 +11,10 @@ $bodyMarginTop: 50px;
     margin-top: $bodyMarginTop;
     & > div {
         width: 30%;
+        height: 100%;
         min-width: $bodyMinWidth;
         margin: 0 auto;
+        padding: 0;
         header {
             padding-bottom: 50px;
             p {
@@ -36,9 +38,6 @@ $bodyMarginTop: 50px;
                 }
             }
         }
-
-
-
 
         section {
             z-index: 10;

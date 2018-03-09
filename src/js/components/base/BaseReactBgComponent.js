@@ -1,11 +1,11 @@
 import React from 'react';
 
-function fillBg(canvasId, bodyId) {
+function fillBg(canvasId, bodyId, heightOffset) {
     let canvas = document.getElementById(canvasId);
     if (canvas.getContext) {
         let downloadBody = document.getElementById(bodyId);
         let cWidth = downloadBody.clientWidth;
-        let cHeight = downloadBody.clientHeight - 20;
+        let cHeight = downloadBody.clientHeight - heightOffset;
         let ctx = canvas.getContext('2d');
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
@@ -29,21 +29,27 @@ function fillBg(canvasId, bodyId) {
  * 调用父类构造函数的时候，props要传递
  */
 export default class BaseReactBgComponent extends React.Component{
-    constructor(canvasId, bodyId, props){
+    constructor(canvasId, bodyId, props, extraHeightOffset){
         super(props);
+        let heightOffset = 0;
+        if(extraHeightOffset){
+            heightOffset = extraHeightOffset;
+        }
         this.state = {
             canvasId: canvasId,
-            bodyId: bodyId
+            bodyId: bodyId,
+            heightOffset: heightOffset
         };
     }
 
     componentDidMount(){
         const canvasId = this.state.canvasId;
         const bodyId = this.state.bodyId;
-        fillBg(canvasId, bodyId);
+        const heightOffset = this.state.heightOffset;
+        fillBg(canvasId, bodyId, heightOffset);
         //添加对窗口大小改变的监听，每次窗口大小变化，就从新绘制背景
         window.addEventListener('resize', () => {
-            fillBg(canvasId, bodyId);
+            fillBg(canvasId, bodyId, heightOffset);
         });
     }
 }

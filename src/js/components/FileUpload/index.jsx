@@ -24,9 +24,9 @@ let FileName = (props) => {
     );
 };
 
-export default class FileUploadComponent extends React.Component {
+export default class FileUploadComponent extends BaseReactBgComponent {
     constructor(props) {
-        super(props);
+        super('myCanvas', 'body', props);
         this.handleSelectFile = this.handleSelectFile.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -89,7 +89,10 @@ export default class FileUploadComponent extends React.Component {
         }
 
         return (
-            <div className="upload-body">
+            <div id={'body'} className="upload-body">
+                <canvas id={'myCanvas'}>
+
+                </canvas>
                 <div>
                     <div className="body-top">
                         <div className="body-name"><span>上传</span></div>

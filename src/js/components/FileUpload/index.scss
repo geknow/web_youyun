@@ -3,6 +3,10 @@
 
 $bodyWidth: 774px;
 $bodyMarginBottom: 50px;
+
+canvas{
+    height: 90% !important;
+}
 .upload-body {
     width: $bodyWidth;
     background-color: $blockcolor;
