@@ -4,36 +4,12 @@ import React from 'react';
 import 'font-awesome/scss/font-awesome.scss';
 import {Link} from 'react-router-dom';
 import backendUrl from '../../actions/backendUrl';
+import BaseReactBgComponent from '../base/BaseReactBgComponent';
 
-
-function fillBg() {
-    let canvas = document.getElementById('myCanvas');
-    if (canvas.getContext) {
-        let downloadBody = document.getElementById('downloadBody');
-        let cWidth = downloadBody.clientWidth;
-        let cHeight = downloadBody.clientHeight - 20;
-        let ctx = canvas.getContext('2d');
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-        //每次绘制都清空一下画布
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.mozImageSmoothingEnabled = true;
-        ctx.fillStyle = '#61a3e8';
-        // ctx.fillRect(cWidth, cHeight - 20, 20, 40);
-        ctx.beginPath();
-        ctx.moveTo(cWidth, 0);
-        ctx.lineTo(0, cHeight);
-        ctx.lineTo(cWidth, cHeight + cWidth);
-        ctx.lineTo(cWidth + cWidth, cWidth);
-        ctx.closePath();
-        ctx.fill();
-    }
-}
-
-export default class FileDownloadComponent extends React.Component {
+export default class FileDownloadComponent extends BaseReactBgComponent {
 
     constructor(props) {
-        super(props);
+        super('myCanvas', 'downloadBody', props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
@@ -73,15 +49,6 @@ export default class FileDownloadComponent extends React.Component {
                 });
             });
     }
-
-    componentDidMount() {
-        fillBg();
-        //添加对窗口大小改变的监听，每次窗口大小变化，就从新绘制背景
-        window.addEventListener('resize', () => {
-            fillBg();
-        });
-    }
-
 
     render() {
         let {iscodeerr} = this.props;

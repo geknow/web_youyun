@@ -10,6 +10,8 @@ import ROUTER from '../../../router';
 
 import {getMyMIME} from '../../service/fileHelper';
 
+import BaseReactBgComponent from '../base/BaseReactBgComponent';
+
 let FileName = (props) => {
     if (!props.filename) {
         return null;
