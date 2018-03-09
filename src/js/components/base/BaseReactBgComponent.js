@@ -9,10 +9,13 @@ function fillBg(canvasId, bodyId, heightOffset) {
         let ctx = canvas.getContext('2d');
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
+        let lingrad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        lingrad.addColorStop(0, '#45a2fb22');
+        lingrad.addColorStop(1, '#fff0');
+        ctx.fillStyle = lingrad;
         //每次绘制都清空一下画布
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.mozImageSmoothingEnabled = true;
-        ctx.fillStyle = '#61a3e8';
         ctx.beginPath();
         ctx.moveTo(cWidth, 0);
         ctx.lineTo(cWidth, cHeight);
