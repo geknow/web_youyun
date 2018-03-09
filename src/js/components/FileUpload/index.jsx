@@ -90,7 +90,9 @@ export default class FileUploadComponent extends BaseReactBgComponent {
 
         return (
             <div id={'body'} className="upload-body">
-                <canvas id={'myCanvas'}>
+                <canvas id={'myCanvas'} style={{
+                    height: '90%'
+                }}>
 
                 </canvas>
                 <div>

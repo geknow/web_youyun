@@ -9,7 +9,7 @@ function fillBg(canvasId, bodyId, heightOffset) {
         let ctx = canvas.getContext('2d');
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
-        let lingrad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        let lingrad = ctx.createLinearGradient(0, 0, 2 * cWidth, 2 * cWidth);
         lingrad.addColorStop(0, '#45a2fb22');
         lingrad.addColorStop(1, '#fff0');
         ctx.fillStyle = lingrad;
