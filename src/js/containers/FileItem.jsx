@@ -20,6 +20,12 @@ export default connect(
                     type: 'getFileDetailFinish',
                     data
                 });
+            },
+            getCommentsFinish: (data) => {
+                dispatch({
+                   type: 'getCommentsFinish',
+                   data
+                });
             }
         };
     }

@@ -1,0 +1,63 @@
+@import '../../../../scss/common/base';
+@import '../../../../scss/common/color';
+
+.comment-wrap {
+  padding: 10px 0;
+  border-bottom: 1px solid lightgrey;
+  .main-comment {
+    & > div {
+      float: left;
+    }
+    .avatar {
+      width: 48px;
+      height: 48px;
+      float: left;
+      border-radius: 50%;
+    }
+    .user-comment {
+      margin-left: 10px;
+      width: calc(100% - 48px - 10px);
+      float: left;
+      p {
+        span {
+          color: $primarybtn;
+        }
+      }
+      .time {
+        margin-top: 10px;
+        span {
+          color: $lightgrey;
+        }
+      }
+    }
+
+  }
+  .comment-info {
+    color: $grey;
+    span {
+      display: inline-block;
+      float: right;
+    }
+    span:first-child {
+      padding-left: 10px;
+    }
+    span:last-child {
+      padding-right: 10px;
+      border-right: 1px solid $grey;
+    }
+  }
+  .comment-reply {
+    margin: 10px 10px 0 80px;
+    padding: 10px;
+    background-color: $backgroudcolor;
+    p {
+      span {
+        color: $primarybtn;
+      }
+    }
+    .time {
+      margin-top: 10px;
+      color: $lightgrey;
+    }
+  }
+}

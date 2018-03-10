@@ -7,6 +7,11 @@ const FileItemReducer = (state, action) => {
                 fileDetail: action.data
             });
             return newState;
+        case 'getCommentsFinish':
+            Object.assign(newState, {
+                comments: action.data
+            });
+            return newState;
         default:
             Object.assign(newState, {
                 fileDetail: action.data

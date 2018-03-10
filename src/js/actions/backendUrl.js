@@ -13,5 +13,7 @@ export default {
 
     getFileDetail: '/api/file/message',
 
+    getComments: '/api/forum/get/comment',
+
     getMessageBeforeDownload: '/api/file/checkdownload'
 };

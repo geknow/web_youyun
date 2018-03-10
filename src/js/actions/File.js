@@ -26,5 +26,23 @@ export async function getFileDetail(identifyCode) {
     })
         .then(function (response) {
             return response.data.data;
+        })
+        .catch(function () {
+
+        });
+}
+
+export async function getComments(fileId, page, size) {
+    return await axios.get(ROUTE.getComments, {
+        params: {
+            fileId: fileId,
+            page: page,
+            size: size
+        }
+    }).then(function (response) {
+        return response.data.data;
+    })
+        .catch(function () {
+
         });
 }
