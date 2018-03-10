@@ -82,7 +82,8 @@ export default class FileDownloadComponent extends BaseReactBgComponent {
                                 </div>
                                 <div className={iscodeerr ?
                                     'extract-code-text-err extract-code-text' : 'extract-code-text'}>
-                                    <input type="text" ref={'code'} onClick={this.handleChange}/>
+                                    <input type="text" ref={'code'} onClick={this.handleChange}
+                                           placeholder="在此输入6位提取码" autofocus="autofocus"/>
                                 </div>
                                 {
                                     !iscodeerr || <div className={'code-tips'}>

@@ -82,11 +82,13 @@ $bodyMarginTop: 50px;
             border: none;
             width: inherit;
             height: inherit;
-            font-size: 1.5em;
+            text-align: center;
+            font-size: 1.2em;
             text-indent: 5px;
           }
           input:focus {
-            outline: none;
+            border: 2px $lightBlue;
+            //outline: none;
           }
         }
         .extract-code-text-err input {

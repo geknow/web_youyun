@@ -59,9 +59,9 @@ header.main-header {
     ul {
       li {
         display: inline-block;
-        margin-left: 1.5em;
+        margin-left: 2.5em;
         a {
-          font-size: 0.75em;
+          font-size: 1em;
           color: $navcolor;
         }
         a:hover {
@@ -88,7 +88,7 @@ header.main-header {
       background-color: $backgroudcolor;
       height: 25px;
       text-indent: 0.6em;
-      font-size: 0.75em;
+      font-size: 1em;
       width: 75%;
 
       padding-right: 22px;
@@ -139,7 +139,7 @@ header.main-header {
       a {
         color: $grey;
         span {
-          font-size: 0.75em;
+          font-size: 1em;
         }
       }
 
