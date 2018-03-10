@@ -42,16 +42,28 @@ $bodyMarginTop: 50px;
     section {
       z-index: 10;
       .caption {
-        background: url("../../../icon/wave1.png") center repeat;
+        //background: url("../../../icon/wave1.png") center repeat;
         height: 171px;
         width: 100%;
+        img{
+          z-index: 1;
+          position: absolute;
+          width: 30%;
+          max-height: 171px;
+          min-width: $bodyMinWidth;
+          height: auto;
+        }
         .body-logo {
+          z-index: 5;
           height: 72px;
           width: 47px;
+          position: relative;
           background: url("../../../icon/lock.png") center no-repeat;
           margin: 20px auto;
         }
         p {
+          z-index: 5;
+          position: relative;
           text-align: center;
           color: white;
           font-size: 1.5em;

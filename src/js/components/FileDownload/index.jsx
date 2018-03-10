@@ -51,7 +51,6 @@ export default class FileDownloadComponent extends BaseReactBgComponent {
     }
 
     render() {
-        let {iscodeerr} = this.props;
         return (
             <div className="home-body clearfix">
                 <div>
@@ -70,8 +69,9 @@ export default class FileDownloadComponent extends BaseReactBgComponent {
                     </canvas>
                     <section id={'downloadBody'}>
                         <div className={'caption'}>
-                            <div className={'body-logo'}>
+                            <img src={require('../../../icon/wave1.png')}/>
 
+                            <div className={'body-logo'}>
                             </div>
                             <p>提取码</p>
                         </div>
@@ -105,5 +105,6 @@ export default class FileDownloadComponent extends BaseReactBgComponent {
                 </img>
             </div>
         );
+        let {iscodeerr} = this.props;
     }
 }
