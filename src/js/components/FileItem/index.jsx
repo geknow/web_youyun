@@ -1,22 +1,58 @@
 import './index.scss';
 import React from 'react';
+import axios from 'axios';
+
 
 import 'font-awesome/scss/font-awesome.scss';
 import {getFileDetail} from '../../actions/File';
+import backendUrl from '../../actions/backendUrl';
 
 export default class FileItemComponent extends React.Component {
 
-    async componentWillMount(){
-        if(this.props.data.identifyCode) {
-            let res = await getFileDetail(this.props.data.identifyCode);
-            if(res){
+    constructor(props) {
+        super(props);
+        this.downloadFile = this.downloadFile.bind(this);
+    }
+
+    async componentWillMount() {
+        if (this.props.fileDetail.identifyCode) {
+            let res = await getFileDetail(this.props.fileDetail.identifyCode);
+            if (res) {
                 let {getFileDetailFinish} = this.props;
                 getFileDetailFinish(res);
             }
         }
     }
+
+    downloadFile(event) {
+        console.log('try download');
+        let identifyCode = this.props.fileDetail.identifyCode;
+        console.log('identifyCode: ' + identifyCode);
+        let that = this;
+        if (!identifyCode && identifyCode === '')
+            return;
+        axios.get(`/api/file/checkdownload/${identifyCode}`)
+            .then(function (response) {
+                console.log('data: ' + response.data);
+                return response.data;
+            })
+            .then(function (res) {
+                if (res.success) {
+                    // window.open(`${backendUrl.baseUrl}/file/download/${res.data}`, );
+                    console.log('message: ' + res.data);
+                    let encrypt = res.data;
+                    let form = that.refs['form'];
+                    form.action = `${backendUrl.baseUrl}/file/download/${encrypt}`;
+                    form.submit();
+                } else {
+                    console.log('err');
+                }
+            })
+            .catch(()=>{});
+    }
+
     render() {
-        let data = this.props.data ? this.props.data : {};
+        let data = this.props.fileDetail ? this.props.fileDetail : {};
         let date = data.createTime ? new Date(data.createTime) : new Date();
         return (
             <div className="itemBody">
@@ -35,7 +71,8 @@ export default class FileItemComponent extends React.Component {
                             </div>
                             <ul className="header">
                                 <li>
-                                    <span><i className="fa fa-cloud-download" aria-hidden="true"/>&nbsp;下载</span>
+                                    <span onClick={this.downloadFile}><i className="fa fa-cloud-download"
+                                                                         aria-hidden="true"/>&nbsp;下载</span>
                                 </li>
                                 <li><span>保存到优云</span></li>
                                 <li><span>复制提取码</span></li>
@@ -50,25 +87,33 @@ export default class FileItemComponent extends React.Component {
                         </div>
                     </div>
 
+                    {/*下面的form是隐藏的，没有宽高，用于下载文件，不能删除*/}
+                    <form method={'get'} ref={'form'} target={'myFrame'}>
+
+                    </form>
+
+                    <iframe name={'myFrame'} width="0" height="0">
+
+                    </iframe>
                     <div className="itemBody-body">
                         <div className="description">
                             <p>{data.description ? data.description : '没有留下描述～'}</p>
                         </div>
                         <div className="picture clearfix">
                             {/*<div className="img-wrap">*/}
-                                {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
+                            {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
                             {/*</div>*/}
                             {/*<div className="img-wrap">*/}
-                                {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
+                            {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
                             {/*</div>*/}
                             {/*<div className="img-wrap">*/}
-                                {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
+                            {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
                             {/*</div>*/}
                             {/*<div className="img-wrap">*/}
-                                {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
+                            {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
                             {/*</div>*/}
                             {/*<div className="img-wrap">*/}
-                                {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
+                            {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
                             {/*</div>*/}
                         </div>
                         <div className="time clearfix">

@@ -80,10 +80,12 @@ $bodyMarginBottom: 50px;
                         margin-right: 20px;
                         color: $primarybtn;
                         cursor: pointer;
+                        @include setBtnHoverShadowAndColor(white);
                     }
                     li:first-of-type {
                         margin-right: 0;
                         color: white;
+                        @include setBtnHoverShadowAndColor($primarybtn);
                         background-color: $primarybtn;
                     }
                 }
