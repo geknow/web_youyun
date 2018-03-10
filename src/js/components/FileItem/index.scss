@@ -5,11 +5,12 @@ $bodyWidth: 1100px;
 $bodyMarginBottom: 50px;
 @include cf('.clearfix');
 .itemBody {
-    width: 80%;
+    width: 70%;
     min-width: $bodyWidth;
     background-color: $blockcolor;
     margin: 0 auto $bodyMarginBottom;
     position: relative;
+    border-radius: 20px;
     & > div {
         margin: 0 8%;
         width: auto;

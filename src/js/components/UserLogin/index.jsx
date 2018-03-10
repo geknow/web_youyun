@@ -45,7 +45,8 @@ export default class UserLogin extends BaseReactBgComponent {
         return (
                 <section id={'body'} className={'user-login'}>
                     <canvas id={'myCanvas'} style={{
-                        height: '90%'
+                        height: '90%',
+                        width: '80%'
                     }}>
 
                     </canvas>

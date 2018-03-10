@@ -6,124 +6,130 @@ $bodyMarginBottom: 50px;
 $bodyMarginTop: 50px;
 @include cf('.clearfix');
 .home-body {
-    background-color: transparent;
-    margin-bottom: $bodyMarginBottom;
-    margin-top: $bodyMarginTop;
-    & > div {
-        width: 30%;
-        height: 100%;
-        min-width: $bodyMinWidth;
-        margin: 0 auto;
-        padding: 0;
-        header {
-            padding-bottom: 50px;
-            p {
-                font-size: 2.5em;
-                text-align: center;
-            }
-            ul {
-                margin-top: 10px;
-                li {
-                    float: left;
-                    text-align: center;
-                    width: calc(20% - 1px);
-                    border-right: 1px solid $lightgrey;
-                    a {
-                        color: $grey;
-                        font-size: 1.2em;
-                    }
-                }
-                li:last-of-type {
-                    border-right: none;
-                }
-            }
+  background-color: transparent;
+  //margin-bottom: $bodyMarginBottom;
+  margin-top: $bodyMarginTop;
+  & > div {
+    width: 30%;
+    height: 100%;
+    min-width: $bodyMinWidth;
+    margin: 0 auto;
+    padding: 0;
+    header {
+      padding-bottom: 50px;
+      p {
+        font-size: 2.5em;
+        text-align: center;
+      }
+      ul {
+        margin-top: 10px;
+        li {
+          float: left;
+          text-align: center;
+          width: calc(20% - 1px);
+          border-right: 1px solid $lightgrey;
+          a {
+            color: $grey;
+            font-size: 1.2em;
+          }
         }
-
-        section {
-            z-index: 10;
-            .caption {
-                background: url("../../../icon/wave1.png") center repeat;
-                height: 171px;
-                width: 100%;
-                .body-logo {
-                    height: 72px;
-                    width: 47px;
-                    background: url("../../../icon/lock.png") center no-repeat;
-                    margin: 20px auto;
-                }
-                p {
-                    text-align: center;
-                    color: white;
-                    font-size: 1.5em;
-                }
-            }
-            .caption:before {
-                content: '';
-                display: table;
-            }
-
-            .main-body {
-                background-color: $blockcolor;
-                position: relative;
-                .info {
-                    margin: 50px auto;
-                    p {
-                        font-weight: 500;
-                        font-size: 1.2em;
-                        text-align: center;
-                    }
-                }
-                .extract-code-text {
-                    width: 360px;
-                    height: 45px;
-                    margin: 0 auto;
-                    input {
-                        background-color: $backgroudcolor;
-                        border: none;
-                        width: inherit;
-                        height: inherit;
-                        font-size: 1.5em;
-                        text-indent: 5px;
-                    }
-                    input:focus{
-                        outline: none;
-                    }
-                }
-                .extract-code-text-err input{
-                    border: 1px solid red;
-                }
-                .code-tips{
-                    margin-top: 10px;
-                    position: absolute;
-                    font-size: 2em;
-                    color: red;
-                    left:0;
-                    right: 0;
-                    p{
-                        text-align: center;
-                    }
-                }
-                .submit-btn{
-                    width: 360px;
-                    height: 45px;
-                    text-align: center;
-                    border-radius: 20px;
-                    background-color: $primarybtn;
-                    line-height: 45px;
-                    margin: 100px auto;
-                    cursor: pointer;
-                    @include setBtnHoverShadowAndColor($primarybtn);
-                    span{
-                        color: white;
-                        font-weight: 500;
-                    }
-                }
-
-            }
-            .main-body:before,.main-body:after {
-                content: '';
-                display: table;
-            }
+        li:last-of-type {
+          border-right: none;
         }
+      }
     }
+
+    section {
+      z-index: 10;
+      .caption {
+        background: url("../../../icon/wave1.png") center repeat;
+        height: 171px;
+        width: 100%;
+        .body-logo {
+          height: 72px;
+          width: 47px;
+          background: url("../../../icon/lock.png") center no-repeat;
+          margin: 20px auto;
+        }
+        p {
+          text-align: center;
+          color: white;
+          font-size: 1.5em;
+        }
+      }
+      .caption:before {
+        content: '';
+        display: table;
+      }
+
+      .main-body {
+        background-color: $blockcolor;
+        position: relative;
+        .info {
+          margin: 50px auto;
+          p {
+            font-weight: 500;
+            font-size: 1.2em;
+            text-align: center;
+          }
+        }
+        .extract-code-text {
+          width: 360px;
+          height: 45px;
+          margin: 0 auto;
+          input {
+            background-color: $backgroudcolor;
+            border: none;
+            width: inherit;
+            height: inherit;
+            font-size: 1.5em;
+            text-indent: 5px;
+          }
+          input:focus {
+            outline: none;
+          }
+        }
+        .extract-code-text-err input {
+          border: 1px solid red;
+        }
+        .code-tips {
+          margin-top: 10px;
+          position: absolute;
+          font-size: 2em;
+          color: red;
+          left: 0;
+          right: 0;
+          p {
+            text-align: center;
+          }
+        }
+        .submit-btn {
+          width: 360px;
+          height: 45px;
+          text-align: center;
+          border-radius: 20px;
+          background-color: $primarybtn;
+          line-height: 45px;
+          margin: 100px auto;
+          cursor: pointer;
+          @include setBtnHoverShadowAndColor($primarybtn);
+          span {
+            color: white;
+            font-weight: 500;
+          }
+        }
+
+      }
+      .main-body:before, .main-body:after {
+        content: '';
+        display: table;
+      }
+    }
+  }
+  #wave {
+    width: 100%;
+    float: left;
+    margin-top: -20%;
+    height: auto;
+  }
 }

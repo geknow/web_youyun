@@ -97,7 +97,11 @@ export default class FileDownloadComponent extends BaseReactBgComponent {
                         <iframe name="upload_target" ref={'catch_result'}
                                 style={{height: 0, width: 0}}/>
                     </section>
+
                 </div>
+                <img src={require('../../../icon/wave.png')} id={'wave'}>
+
+                </img>
             </div>
         );
     }
