@@ -7,11 +7,13 @@ import SquareNavReducer from './SquareNav';
 import SquareItemsReducer from './SquareItems';
 import UserLoginReducer from './UserLogin';
 import FilePersonalCenterReducer from './FilePersonCenter';
+import FileItemReducer from './FileItem';
 
 export default combineReducers({
     FileHeaderReducer,
     FileUploadReducer,
     FileExtractCodeReducer,
+    FileItemReducer,
     FileDownloadReducer,
     SquareNavReducer,
     SquareItemsReducer,

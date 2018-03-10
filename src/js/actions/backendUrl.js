@@ -9,6 +9,7 @@ export default {
 
     forumFiles: '/api/forum/files',
 
-    defaultAvatar: 'http://eupan.club:8080/avatar/default-avatar.jpg'
+    defaultAvatar: 'http://eupan.club:8080/avatar/default-avatar.jpg',
 
+    getFileDetail: '/api/file/message'
 };

@@ -51,6 +51,7 @@ export default class FileDownloadComponent extends BaseReactBgComponent {
     }
 
     render() {
+        let {iscodeerr} = this.props;
         return (
             <div className="home-body clearfix">
                 <div>
@@ -83,7 +84,7 @@ export default class FileDownloadComponent extends BaseReactBgComponent {
                                 <div className={iscodeerr ?
                                     'extract-code-text-err extract-code-text' : 'extract-code-text'}>
                                     <input type="text" ref={'code'} onClick={this.handleChange}
-                                           placeholder="在此输入6位提取码" autofocus="autofocus"/>
+                                           placeholder="在此输入6位提取码" autoFocus/>
                                 </div>
                                 {
                                     !iscodeerr || <div className={'code-tips'}>
@@ -105,6 +106,5 @@ export default class FileDownloadComponent extends BaseReactBgComponent {
                 </img>
             </div>
         );
-        let {iscodeerr} = this.props;
     }
 }

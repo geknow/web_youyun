@@ -4,15 +4,24 @@
 
 import {connect} from 'react-redux';
 import React from 'react';
-import {FileUploadResultComponent} from '../components/index';
+import {FileItemComponent} from '../components/index';
 
 
 export default connect(
     (state) => {
-        return {};
+        return {
+            ...state.FileItemReducer
+        };
     },
     (dispatch) => {
-        return {};
+        return {
+            getFileDetailFinish: (data) => {
+                dispatch({
+                    type: 'getFileDetailFinish',
+                    data
+                });
+            }
+        };
     }
-)(FileUploadResultComponent);
+)(FileItemComponent);
 

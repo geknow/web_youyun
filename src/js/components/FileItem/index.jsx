@@ -2,10 +2,22 @@ import './index.scss';
 import React from 'react';
 
 import 'font-awesome/scss/font-awesome.scss';
-
+import {getFileDetail} from '../../actions/File';
 
 export default class FileItemComponent extends React.Component {
+
+    async componentWillMount(){
+        if(this.props.data.identifyCode) {
+            let res = await getFileDetail(this.props.data.identifyCode);
+            if(res){
+                let {getFileDetailFinish} = this.props;
+                getFileDetailFinish(res);
+            }
+        }
+    }
     render() {
+        let data = this.props.data ? this.props.data : {};
+        let date = data.createTime ? new Date(data.createTime) : new Date();
         return (
             <div className="itemBody">
                 <div>
@@ -14,11 +26,11 @@ export default class FileItemComponent extends React.Component {
                             <div className="file-type header"/>
                             <div className="file-info header">
                                 <div className="file-people">
-                                    <a href="">little_friend</a>
+                                    <a href="">{data.user ? data.user.username : '佚名用户'}</a>
                                     <span>公开分享了文件</span>
                                 </div>
                                 <div className="file-name">
-                                    <span>名人传 (2017年4月)</span>
+                                    <span>{data.name}</span>
                                 </div>
                             </div>
                             <ul className="header">
@@ -31,7 +43,7 @@ export default class FileItemComponent extends React.Component {
                             <div className="file-code header">
                                 <span>提取码</span>
                                 <div>
-                                    <span>abcd</span>
+                                    <span>{data.identifyCode}</span>
                                     <span>提取码永久有效</span>
                                 </div>
                             </div>
@@ -40,28 +52,27 @@ export default class FileItemComponent extends React.Component {
 
                     <div className="itemBody-body">
                         <div className="description">
-                            <p>
-                                这是一条情况说明这是一条情况说明这是一条情况说明这是一条情况说明这是一条情况说明这是一条情况说明这是一条情况说明这是一条情况说明这是一条情况说明这是一条情况说明这是一条情况说明这是一条情况说明</p>
+                            <p>{data.description ? data.description : '没有留下描述～'}</p>
                         </div>
                         <div className="picture clearfix">
-                            <div className="img-wrap">
-                                <img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>
-                            </div>
-                            <div className="img-wrap">
-                                <img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>
-                            </div>
-                            <div className="img-wrap">
-                                <img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>
-                            </div>
-                            <div className="img-wrap">
-                                <img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>
-                            </div>
-                            <div className="img-wrap">
-                                <img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>
-                            </div>
+                            {/*<div className="img-wrap">*/}
+                                {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
+                            {/*</div>*/}
+                            {/*<div className="img-wrap">*/}
+                                {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
+                            {/*</div>*/}
+                            {/*<div className="img-wrap">*/}
+                                {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
+                            {/*</div>*/}
+                            {/*<div className="img-wrap">*/}
+                                {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
+                            {/*</div>*/}
+                            {/*<div className="img-wrap">*/}
+                                {/*<img src="http://img1.imgtn.bdimg.com/it/u=594559231,2167829292&fm=27&gp=0.jpg" alt=""/>*/}
+                            {/*</div>*/}
                         </div>
                         <div className="time clearfix">
-                            <span>10月6日14: 02</span>
+                            <span>{date.toLocaleString()}</span>
                         </div>
                     </div>
 
@@ -70,15 +81,15 @@ export default class FileItemComponent extends React.Component {
                         <ul>
                             <li>
                                 <a href="">下载</a>
-                                <span>(192)</span>
+                                <span>({data.downloadCount})</span>
                             </li>
                             <li>
-                                <a href="">评论</a>
-                                <span>(2)</span>
+                                <a href="">浏览</a>
+                                <span>({data.lookNum})</span>
                             </li>
                             <li>
                                 <a href="">赞</a>
-                                <span>(100)</span>
+                                <span>({data.star})</span>
                             </li>
                         </ul>
                     </div>
