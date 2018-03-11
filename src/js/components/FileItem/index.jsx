@@ -2,7 +2,7 @@ import './index.scss';
 import React from 'react';
 import axios from 'axios';
 
-
+import Clipboard from 'clipboard';
 import 'font-awesome/scss/font-awesome.scss';
 import {getFileDetail, getComments} from '../../actions/File';
 import backendUrl from '../../actions/backendUrl';
@@ -29,6 +29,8 @@ class CommentItem extends React.Component {
         let comment = this.props.comment;
         let user = comment.user;
         let date = (comment && comment.createTime) ? new Date(comment.createTime) : new Date();
+
+
         return (
             <div className="comment-wrap clearfix">
                 <div className="main-comment clearfix">
@@ -51,24 +53,40 @@ class CommentItem extends React.Component {
         );
     }
 }
+
 export default class FileItemComponent extends React.Component {
 
     constructor(props) {
         super(props);
         this.downloadFile = this.downloadFile.bind(this);
+        this.changeCopyBtnText = this.changeCopyBtnText.bind(this);
+        this.state = {
+            page: 1,
+            copyBtnText: '复制提取码'
+        };
     }
 
     async componentWillMount() {
         let file = this.props.fileDetail;
         if (file) {
+            /**
+             * 获取文件详情
+             */
             let res = await getFileDetail(file.identifyCode);
             if (res) {
                 let {getFileDetailFinish} = this.props;
                 getFileDetailFinish(res);
             }
             console.log('fileId: ' + file.id);
-            let comments = await getComments(file.id, 1, 50);
-            if(comments){
+            /**
+             * 获取评论
+             */
+            let comments = await getComments(file.id, this.state.page, 50);
+            //页数+1(为获取更多做准备)
+            this.setState((preState, props) => ({
+                page: preState.page + 1
+            }));
+            if (comments) {
                 let {getCommentsFinish} = this.props;
                 getCommentsFinish(comments);
             }
@@ -97,7 +115,15 @@ export default class FileItemComponent extends React.Component {
                     console.log('err');
                 }
             })
-            .catch(()=>{});
+            .catch(() => {
+            });
+    }
+
+    changeCopyBtnText(e){
+        this.setState({
+            copyBtnText: '已复制'
+        });
+        e.clearSelection();
     }
 
     render() {
@@ -107,6 +133,11 @@ export default class FileItemComponent extends React.Component {
         let commentItems = comments.map((item) => {
             return <CommentItem key={item.id} comment={item}/>;
         });
+
+        let clipboard = new Clipboard('#copy-btn');
+
+        clipboard.on('success', this.changeCopyBtnText);
+
         return (
             <div className="itemBody">
                 <div>
@@ -128,7 +159,8 @@ export default class FileItemComponent extends React.Component {
                                                                          aria-hidden="true"/>&nbsp;下载</span>
                                 </li>
                                 <li><span>保存到优云</span></li>
-                                <li><span>复制提取码</span></li>
+                                <li id={'copy-btn'} data-clipboard-text={data.identifyCode ? data.identifyCode : ''}>
+                                    <span>{this.state.copyBtnText}</span></li>
                             </ul>
                             <div className="file-code header">
                                 <span>提取码</span>
@@ -178,15 +210,15 @@ export default class FileItemComponent extends React.Component {
                         <span>评论</span>
                         <ul>
                             <li>
-                                <a href="">下载</a>
+                                <a href="#">下载</a>
                                 <span>({data.downloadCount})</span>
                             </li>
                             <li>
-                                <a href="">浏览</a>
+                                <a href="#">浏览</a>
                                 <span>({data.lookNum})</span>
                             </li>
                             <li>
-                                <a href="">赞</a>
+                                <a href="#">赞</a>
                                 <span>({data.star})</span>
                             </li>
                         </ul>
@@ -194,80 +226,80 @@ export default class FileItemComponent extends React.Component {
                     <div className="itemBody-comment">
                         {!!commentItems && commentItems}
                         {/*<div className="comment-wrap clearfix">*/}
-                            {/*<div className="main-comment clearfix">*/}
-                                {/*<img src="http://eupan.club:8080/file/download/9f5c773cbe13cb3f4bc171ea82d96fa9?" className="avatar">*/}
+                        {/*<div className="main-comment clearfix">*/}
+                        {/*<img src="http://eupan.club:8080/file/download/9f5c773cbe13cb3f4bc171ea82d96fa9?" className="avatar">*/}
 
-                                {/*</img>*/}
-                                {/*<div className="user-comment">*/}
-                                    {/*<p><span>大学物理</span>:这是一条评论</p>*/}
-                                    {/*<div className="time">*/}
-                                        {/*<span>5分钟前</span>*/}
-                                    {/*</div>*/}
-                                {/*</div>*/}
+                        {/*</img>*/}
+                        {/*<div className="user-comment">*/}
+                        {/*<p><span>大学物理</span>:这是一条评论</p>*/}
+                        {/*<div className="time">*/}
+                        {/*<span>5分钟前</span>*/}
+                        {/*</div>*/}
+                        {/*</div>*/}
 
-                            {/*</div>*/}
-                            {/*<div className="comment-info clearfix">*/}
-                                {/*<span>赞 (3)</span>*/}
-                                {/*<span>回复</span>*/}
-                            {/*</div>*/}
+                        {/*</div>*/}
+                        {/*<div className="comment-info clearfix">*/}
+                        {/*<span>赞 (3)</span>*/}
+                        {/*<span>回复</span>*/}
+                        {/*</div>*/}
                         {/*</div>*/}
                         {/*<div className="comment-wrap clearfix">*/}
-                            {/*<div className="main-comment clearfix">*/}
-                                {/*<div className="avatar">*/}
+                        {/*<div className="main-comment clearfix">*/}
+                        {/*<div className="avatar">*/}
 
-                                {/*</div>*/}
-                                {/*<div className="user-comment">*/}
-                                    {/*<p><span>大学物理</span>:这是一条评论</p>*/}
-                                    {/*<div className="time">*/}
-                                        {/*<span>5分钟前</span>*/}
-                                    {/*</div>*/}
-                                {/*</div>*/}
-                            {/*</div>*/}
+                        {/*</div>*/}
+                        {/*<div className="user-comment">*/}
+                        {/*<p><span>大学物理</span>:这是一条评论</p>*/}
+                        {/*<div className="time">*/}
+                        {/*<span>5分钟前</span>*/}
+                        {/*</div>*/}
+                        {/*</div>*/}
+                        {/*</div>*/}
 
-                            {/*<div className="comment-info clearfix">*/}
-                                {/*<span>赞 (3)</span>*/}
-                                {/*<span>回复</span>*/}
-                            {/*</div>*/}
+                        {/*<div className="comment-info clearfix">*/}
+                        {/*<span>赞 (3)</span>*/}
+                        {/*<span>回复</span>*/}
+                        {/*</div>*/}
 
-                            {/*<div className="comment-reply clearfix">*/}
-                                {/*<div className="user-comment">*/}
-                                    {/*<p><span>计算机组成原理</span>:这是一条评论</p>*/}
-                                    {/*<div className="time">*/}
-                                        {/*<span>1天前</span>*/}
-                                    {/*</div>*/}
-                                {/*</div>*/}
-                                {/*<div className="comment-info">*/}
-                                    {/*<span>赞 (3)</span>*/}
-                                    {/*<span>回复</span>*/}
-                                {/*</div>*/}
-                            {/*</div>*/}
+                        {/*<div className="comment-reply clearfix">*/}
+                        {/*<div className="user-comment">*/}
+                        {/*<p><span>计算机组成原理</span>:这是一条评论</p>*/}
+                        {/*<div className="time">*/}
+                        {/*<span>1天前</span>*/}
+                        {/*</div>*/}
+                        {/*</div>*/}
+                        {/*<div className="comment-info">*/}
+                        {/*<span>赞 (3)</span>*/}
+                        {/*<span>回复</span>*/}
+                        {/*</div>*/}
+                        {/*</div>*/}
                         {/*</div>*/}
                         {/*<div className="comment-wrap clearfix">*/}
-                            {/*<div className="main-comment clearfix">*/}
-                                {/*<div className="avatar">*/}
+                        {/*<div className="main-comment clearfix">*/}
+                        {/*<div className="avatar">*/}
 
-                                {/*</div>*/}
-                                {/*<div className="user-comment">*/}
-                                    {/*<p><span>大学物理</span>:*/}
-                                        {/*这是一条评论*/}
-                                        {/*这是一条评论*/}
-                                        {/*这是一条评论 这是一条评论 这是一条评论 这是一条评论*/}
-                                        {/*这是一条评论*/}
-                                        {/*这是一条评论*/}
-                                        {/*这是一条评论*/}
-                                        {/*这是一条评论*/}
-                                        {/*这是一条评论*/}
-                                    {/*</p>*/}
-                                    {/*<div className="time">*/}
-                                        {/*<span>5分钟前</span>*/}
-                                    {/*</div>*/}
-                                {/*</div>*/}
+                        {/*</div>*/}
+                        {/*<div className="user-comment">*/}
+                        {/*<p><span>大学物理</span>:*/}
+                        {/*这是一条评论*/}
+                        {/*这是一条评论*/}
+                        {/*这是一条评论 这是一条评论 这是一条评论 这是一条评论*/}
+                        {/*这是一条评论*/}
+                        {/*这是一条评论*/}
+                        {/*这是一条评论*/}
+                        {/*这是一条评论*/}
+                        {/*这是一条评论*/}
+                        {/*</p>*/}
+                        {/*<div className="time">*/}
+                        {/*<span>5分钟前</span>*/}
+                        {/*</div>*/}
+                        {/*</div>*/}
 
-                            {/*</div>*/}
-                            {/*<div className="comment-info clearfix">*/}
-                                {/*<span>回复</span>*/}
-                                {/*<span>赞 (3)</span>*/}
-                            {/*</div>*/}
+                        {/*</div>*/}
+                        {/*<div className="comment-info clearfix">*/}
+                        {/*<span>回复</span>*/}
+                        {/*<span>赞 (3)</span>*/}
+                        {/*</div>*/}
                         {/*</div>*/}
                     </div>
                 </div>

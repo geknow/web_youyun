@@ -38,6 +38,7 @@ export default class FileUploadComponent extends BaseReactBgComponent {
     }
 
     handleSubmit() {
+        console.log('handleSubmit');
         let {uploadFile} = this.props;
         let file = this.refs['file'].files[0];
         let body = {
@@ -114,7 +115,7 @@ export default class FileUploadComponent extends BaseReactBgComponent {
                             <FileName filename={filename}/>
                             <div className="drag-logo">
                             </div>
-                            <p>支持文件拖曳上传</p>
+                            <p>支持文件拖曳上上传</p>
                             {/*进度条*/}
 
                             <div className="progress progress-striped active"
@@ -133,20 +134,20 @@ export default class FileUploadComponent extends BaseReactBgComponent {
 
                             <div className="form-group">
                                 <span>是否分享到广场</span>
-                                <label> <input type="radio" name="share" value="true"/>是</label>
-                                <label> <input type="radio" name="share" value="false"/>否</label>
+                                <label> <input type="radio" name="share" defaultChecked={true}/>是</label>
+                                <label> <input type="radio" name="share" />否</label>
                             </div>
                             <div className="form-group">
                                 <span>有效时间</span>
                                 <label> <input type="radio" name="expireTime" value={3600 * 1000 * 24}/>一天</label>
                                 <label> <input type="radio" name="expireTime" value={7 * 3600 * 1000 * 24}/>一周</label>
                                 <label> <input type="radio" name="expireTime" value={30 * 3600 * 1000 * 24}/>30天</label>
-                                <label> <input type="radio" name="expireTime"/>永久</label>
+                                <label> <input type="radio" name="expireTime" defaultChecked={true}/>永久</label>
                             </div>
                             <div className="form-group">
                                 <span>下载次数</span>
                                 <label><input type="radio" name="leftAllowDownloadCount" value={1}/>一次</label>
-                                <label><input type="radio" name="leftAllowDownloadCount"/>不限</label>
+                                <label><input type="radio" name="leftAllowDownloadCount" defaultChecked={true}/>不限</label>
                                 <label><input type="radio" name="leftAllowDownloadCount"
                                               ref={'leftAllowDownloadCount'}/><input type="text"
                                                                                      name={'count'}/>次</label>

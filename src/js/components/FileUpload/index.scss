@@ -9,6 +9,8 @@ $bodyMarginBottom: 50px;
     background-color: $blockcolor;
     margin: $bodyMarginBottom auto;
     div {
+        z-index: 10;
+        position: relative;
         width: 570px;
         margin: 0 auto;
         .body-top {

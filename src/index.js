@@ -17,6 +17,8 @@ import store from './store';
 
 import {autoLogin} from './js/actions/UserLogin';
 
+const setTitle = title => () => document.title = title;
+
 (async () => {
     //记住密码
     if (!!localStorage.getItem('loginToken')) {

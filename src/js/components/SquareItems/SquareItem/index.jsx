@@ -96,13 +96,13 @@ export default class SquareItem extends React.Component {
                                     src={data.user ? data.user.avatar : ROUTE.defaultAvatar}
                                     alt=""/>
                             </div>
-                            <p><span>{data.user ? data.user.username : '不知名用户'}</span>公开分享了该文件</p>
+                            <p><span>{data.user ? data.user.username : '佚名用户'}</span>公开分享了该文件</p>
                         </div>
                         <p className={'time'}>{time.getMonth() + '月' + time.getDay() + '日 ' + time.getHours() + ':' + time.getMinutes()}</p>
                         <div className={'item-info'}>
                             <ul className={'clearfix'}>
                                 <li><span>下载</span><span>({data.downloadCount})</span></li>
-                                <li><span>评论</span><span>(1)</span></li>
+                                <li><span>浏览</span><span>({data.lookNum})</span></li>
                                 <li><span>赞</span><span>({data.star})</span></li>
                             </ul>
                         </div>
