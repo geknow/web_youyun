@@ -48,7 +48,7 @@ const setTitle = title => () => document.title = title;
                     <Route exact path="/" component={FileDownloadPage}/>
                     <Route exact path={ROUTER.FILECENTER} component={FilePersonalCenterPage}/>
                     <Route exact path={ROUTER.FILEUPLOAD} component={FileUploadPage}/>
-                    <Route path={ROUTER.FILEITEM} component={FileItemPage}/>
+                    <Route path={ROUTER.FILEITEM + '/:identifyCode'} component={FileItemPage}/>
                     <Route path={ROUTER.FILECODE} component={FileExtractCodePage}/>
 
                     <Route path={ROUTER.SQUAREFOUND} component={SqaureFoundPage}/>

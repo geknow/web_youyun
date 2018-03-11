@@ -61,7 +61,7 @@ export default class SquareItem extends React.Component {
                         <div className={'item-type'}>
                             <img src={type} alt=""/>
                         </div>
-                        <span className={'download-name'}><Link to={ROUTER.FILEITEM}
+                        <span className={'download-name'}><Link to={ROUTER.FILEITEM + '/' + data.identifyCode}
                                                                 onClick={() => {
                                                                     showFile(data);
                                                                 }}>{data.name}</Link></span>

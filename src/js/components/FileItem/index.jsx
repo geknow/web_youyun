@@ -67,21 +67,22 @@ export default class FileItemComponent extends React.Component {
     }
 
     async componentWillMount() {
-        let file = this.props.fileDetail;
-        if (file) {
+        // let file = this.props.fileDetail;
+        let identifyCode = document.location.pathname.split('/').pop();
+        if (identifyCode) {
             /**
              * 获取文件详情
              */
-            let res = await getFileDetail(file.identifyCode);
+            let res = await getFileDetail(identifyCode);
             if (res) {
                 let {getFileDetailFinish} = this.props;
                 getFileDetailFinish(res);
             }
-            console.log('fileId: ' + file.id);
+            console.log('fileId: ' + res.id);
             /**
              * 获取评论
              */
-            let comments = await getComments(file.id, this.state.page, 50);
+            let comments = await getComments(res.id, this.state.page, 50);
             //页数+1(为获取更多做准备)
             this.setState((preState, props) => ({
                 page: preState.page + 1
@@ -119,7 +120,7 @@ export default class FileItemComponent extends React.Component {
             });
     }
 
-    changeCopyBtnText(e){
+    changeCopyBtnText(e) {
         this.setState({
             copyBtnText: '已复制'
         });
